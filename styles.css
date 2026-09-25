@@ -105,20 +105,24 @@ p { margin: 0; }
 }
 .hero__grid {
   display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: clamp(32px, 6vw, 80px);
-  align-items: center;
+  grid-template-columns: 1fr;
 }
-.hero__who { font-weight: 500; font-size: .98rem; opacity: .9; margin-bottom: 28px; }
-.hero__who span { font-weight: 600; }
+.hero__who { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+.hero__avatar {
+  width: 76px; height: 76px; border-radius: 50%; object-fit: cover;
+  border: 3px solid var(--paper);
+  box-shadow: 0 6px 20px rgba(34, 26, 21, .18);
+}
+.hero__who p { font-weight: 600; font-size: 1.05rem; line-height: 1.35; }
+.hero__who span { display: block; font-weight: 500; font-size: .95rem; opacity: .85; }
 .hero__quote {
   font-family: var(--serif);
   font-weight: 400;
   font-style: italic;
-  font-size: clamp(2.4rem, 6.2vw, 5rem);
+  font-size: clamp(2.4rem, 7vw, 6.6rem);
   line-height: 1.04;
   letter-spacing: -0.015em;
-  max-width: 13ch;
+  max-width: 17ch;
 }
 .hero__quote .q { font-style: normal; opacity: .6; }
 .hero__sign {
@@ -133,22 +137,16 @@ p { margin: 0; }
 .hero .btn--line:hover { background: var(--paper); color: var(--ink); }
 .hero .btn--dark:hover { border-color: var(--ink); background: var(--paper); color: var(--ink); }
 
-.hero__photo { margin: 0; justify-self: end; width: 100%; max-width: 420px; }
-.hero__photo img {
-  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
-  border-radius: 999px 999px 18px 18px;   /* arco, como una ventana */
-  background: var(--sand);
-}
 
 /* una sola animación de entrada, solo en el hero */
 @media (prefers-reduced-motion: no-preference) {
-  .hero__quote, .hero__sign, .hero__lead, .hero__actions, .hero__photo {
+  .hero__who, .hero__quote, .hero__sign, .hero__lead, .hero__actions {
     animation: rise .9s cubic-bezier(.2, .7, .2, 1) both;
   }
   .hero__sign { animation-delay: .25s; }
   .hero__lead { animation-delay: .35s; }
   .hero__actions { animation-delay: .45s; }
-  .hero__photo { animation-delay: .15s; }
+  .hero__quote { animation-delay: .1s; }
   @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 }
 
@@ -305,8 +303,7 @@ p { margin: 0; }
    MÓVIL Y TABLET
    ========================================================= */
 @media (max-width: 900px) {
-  .hero__grid { grid-template-columns: 1fr; }
-  .hero__photo { justify-self: start; max-width: 320px; order: -1; }
+  .hero__avatar { width: 64px; height: 64px; }
   .story__grid, .channel__head { grid-template-columns: 1fr; }
   .skills__list { grid-template-columns: 1fr 1fr; }
   .videos { grid-template-columns: 1fr; max-width: 560px; }
