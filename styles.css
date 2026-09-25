@@ -107,13 +107,13 @@ p { margin: 0; }
   display: grid;
   grid-template-columns: 1fr;
 }
-.hero__who { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+.hero__who { display: flex; align-items: center; gap: 22px; margin-bottom: 36px; }
 .hero__avatar {
-  width: 76px; height: 76px; border-radius: 50%; object-fit: cover;
-  border: 3px solid var(--paper);
+  width: 124px; height: 124px; border-radius: 50%; object-fit: cover;
+  border: 4px solid var(--paper);
   box-shadow: 0 6px 20px rgba(34, 26, 21, .18);
 }
-.hero__who p { font-weight: 600; font-size: 1.05rem; line-height: 1.35; }
+.hero__who p { font-weight: 600; font-size: 1.25rem; line-height: 1.35; }
 .hero__who span { display: block; font-weight: 500; font-size: .95rem; opacity: .85; }
 .hero__quote {
   font-family: var(--serif);
@@ -303,7 +303,7 @@ p { margin: 0; }
    MÓVIL Y TABLET
    ========================================================= */
 @media (max-width: 900px) {
-  .hero__avatar { width: 64px; height: 64px; }
+  .hero__avatar { width: 96px; height: 96px; }
   .story__grid, .channel__head { grid-template-columns: 1fr; }
   .skills__list { grid-template-columns: 1fr 1fr; }
   .videos { grid-template-columns: 1fr; max-width: 560px; }
