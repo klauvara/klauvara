@@ -540,8 +540,8 @@ document.documentElement.classList.add('js');
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Cabecera: transparente sobre la portada, sólida al bajar
-const top = document.querySelector('.top');
-const onScroll = () => top.classList.toggle('is-solid', window.scrollY > 40);
+const cabecera = document.querySelector('.top');
+const onScroll = () => cabecera.classList.toggle('is-solid', window.scrollY > 40);
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
 
