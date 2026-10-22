@@ -346,6 +346,19 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
 .hero__title { font-size: clamp(40px, 5vw, 76px); line-height: 1.04; }
 .rail .video, .rail .video h3, .video__meta { text-align: left; }
 
+/* pop-up de confirmación */
+.modal { position: fixed; inset: 0; z-index: 99; display: grid; place-items: center; padding: 20px; background: rgba(23,17,14,.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); animation: fadeIn .3s ease both; }
+.modal[hidden] { display: none; }
+.modal__box { background: var(--paper); color: var(--ink); border-radius: 28px; padding: 44px 40px 36px; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 40px 80px -30px rgba(0,0,0,.6); animation: pop .45s var(--ease) both; }
+.modal__k { width: 64px; height: 64px; margin: 0 auto 18px; border-radius: 50%; background: #AD8663; color: var(--paper); display: grid; place-items: center; font-weight: 700; font-size: 26px; }
+.modal__box h3 { font-size: 30px; font-weight: 600; letter-spacing: -.02em; }
+.modal__box p { color: var(--ink-soft); margin-top: 10px; font-size: 16.5px; line-height: 1.55; }
+.modal__box b { color: var(--ink); font-weight: 600; }
+.modal__box .btn { margin-top: 24px; width: 100%; }
+@keyframes fadeIn { from { opacity: 0; } }
+@keyframes pop { from { opacity: 0; transform: translateY(20px) scale(.96); } }
+.modal__box .modal__k { color: var(--paper); margin: 0 auto 18px; font-size: 26px; }
+
 </style>
 </head>
 <body>
@@ -518,7 +531,7 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
 
   <footer class="foot">
     <div class="wrap foot__in">
-      <p>© <span id="year"></span> Claudia Fernández · Klauvara</p>
+      <p>© <span id="year"></span> Claudia Fernández · Klauvara <span style="opacity:.4">· v14</span></p>
       <details class="privacy" id="privacidad">
         <summary>Protección de datos</summary>
         <p>Responsable: Claudia Fernández (Klauvara), klauvara.contacto@gmail.com. Finalidad: enviarte mi historia y novedades de Klauvara. Legitimación: tu consentimiento. Tus datos se guardan en una hoja de cálculo de mi cuenta de Google y no se ceden a terceros. Puedes acceder, rectificar o pedir que borre tus datos escribiendo a klauvara.contacto@gmail.com.</p>
@@ -526,6 +539,15 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
     </div>
   </footer>
 
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-t" hidden>
+    <div class="modal__box">
+      <p class="modal__k">k.</p>
+      <h3 id="modal-t">¡Hecho, <span class="modal__name"></span>!</h3>
+      <p>Te la acabo de enviar a tu email. Si en unos minutos no la ves, mira en <b>spam</b> o en <b>Promociones</b>.</p>
+      <button class="btn btn--dark" type="button" data-close>Perfecto</button>
+    </div>
+  </div>
   <p class="toast" role="status" aria-live="polite"></p>
   <script>
 // =========================================================
@@ -628,13 +650,27 @@ if (form) {
     button.disabled = true; button.textContent = 'Enviando…';
     const body = new URLSearchParams({ nombre, email, origen: new URLSearchParams(location.search).get('o') || 'web' });
     try { await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body }); } catch (err) {}
-    done.querySelector('.form__name').textContent = nombre.split(' ')[0];
+    const nom = nombre.split(' ')[0];
+    done.querySelector('.form__name').textContent = nom;
     form.hidden = true;
     done.hidden = false;
+    const modal = document.getElementById('modal');
+    modal.querySelector('.modal__name').textContent = nom;
+    modal.hidden = false;
+    modal.querySelector('[data-close]').focus();
   });
 }
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// cerrar el pop-up
+const modalEl = document.getElementById('modal');
+if (modalEl) {
+  const cerrar = () => { modalEl.hidden = true; };
+  modalEl.querySelector('[data-close]').addEventListener('click', cerrar);
+  modalEl.addEventListener('click', e => { if (e.target === modalEl) cerrar(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrar(); });
+}
 
 </script>
 </body>
