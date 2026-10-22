@@ -61,8 +61,6 @@
       main{grid-template-columns:1fr}
       .cover{order:-1;max-width:330px;margin:0 auto}
     }
-  .dlbig{display:inline-block;margin-top:34px;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:600;border-radius:999px;padding:18px 30px;font-size:17px}
-    .note{font-size:14px;color:var(--ink-soft);margin:14px 0 0}
   </style>
 </head>
 <body>
@@ -80,8 +78,27 @@
         <li>un ejercicio para encontrar tu idea en una tarde</li>
       </ul>
 
-      <a class="dlbig" href="klauvara-mi-historia.pdf" download>descargar la guía gratis</a>
-      <p class="note">sin registros ni emails. solo léela y, si te sirve, cuéntamelo por instagram en @klauvara.</p>
+      <form id="form" novalidate>
+        <label class="f">tu nombre
+          <input type="text" name="nombre" autocomplete="given-name" required maxlength="80">
+        </label>
+        <label class="f">tu email
+          <input type="email" name="email" autocomplete="email" required maxlength="120">
+        </label>
+        <input class="hp" type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="check">
+          <input type="checkbox" name="acepto" required>
+          <span>acepto recibir emails de klauvara con la guía y novedades. puedes darte de baja cuando quieras, respondiendo a cualquier email.</span>
+        </label>
+        <p class="msg" id="msg" role="alert"></p>
+        <button type="submit" id="btn">quiero la guía</button>
+      </form>
+
+      <div class="done" id="done" role="status">
+        <h2>ya es tuya, <span id="nom"></span></h2>
+        <p>también te la he enviado por email, por si quieres leerla más tarde.</p>
+        <a class="dl" href="klauvara-mi-historia.pdf" download>descargar la guía</a>
+      </div>
     </section>
 
     <figure class="cover">
@@ -90,10 +107,48 @@
     </figure>
   </main>
 
-  
+  <div class="legal">
+    <details>
+      <summary>información sobre protección de datos</summary>
+      <p>Responsable: Claudia Fernández (Klauvara), klauvara.contacto@gmail.com. Finalidad: enviarte la guía y novedades de Klauvara. Legitimación: tu consentimiento. Tus datos se guardan en una hoja de cálculo de mi cuenta de Google y no se ceden a terceros. Puedes acceder, rectificar o pedir que borre tus datos en cualquier momento escribiendo a klauvara.contacto@gmail.com.</p>
+    </details>
+  </div>
 
   <footer><span class="k">k.</span>no tengo todas las respuestas, las estoy buscando.</footer>
 
-  
+  <script>
+    // Pega aquí la URL de tu Apps Script (termina en /exec)
+    const SCRIPT_URL = 'PEGA_AQUI_LA_URL_DE_TU_APPS_SCRIPT';
+
+    const form = document.getElementById('form');
+    const msg = document.getElementById('msg');
+    const btn = document.getElementById('btn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.textContent = '';
+      const d = new FormData(form);
+      const nombre = (d.get('nombre') || '').trim();
+      const email = (d.get('email') || '').trim();
+      if (!nombre) { msg.textContent = 'dime tu nombre.'; return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = 'revisa el email, parece que no está bien.'; return; }
+      if (!d.get('acepto')) { msg.textContent = 'tienes que aceptar para recibir la guía.'; return; }
+      if (d.get('web')) return; // bots
+
+      btn.disabled = true; btn.textContent = 'enviando…';
+      const body = new URLSearchParams({
+        nombre, email,
+        origen: new URLSearchParams(location.search).get('o') || 'directo'
+      });
+      if (SCRIPT_URL.startsWith('https://')) {
+        try { await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body }); } catch (err) {}
+      } else {
+        document.querySelector('#done p').textContent = 'aquí la tienes.';
+      }
+      document.getElementById('nom').textContent = nombre.split(' ')[0].toLowerCase();
+      form.style.display = 'none';
+      document.getElementById('done').style.display = 'block';
+    });
+  </script>
 </body>
 </html>
