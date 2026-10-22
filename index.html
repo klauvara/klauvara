@@ -359,6 +359,25 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
 @keyframes pop { from { opacity: 0; transform: translateY(20px) scale(.96); } }
 .modal__box .modal__k { color: var(--paper); margin: 0 auto 18px; font-size: 26px; }
 
+/* casilla obligatoria */
+.form__msg { color: #FF6B5A; font-weight: 500; font-size: 14.5px; }
+.check--error { color: #FF8A7C; }
+.check--error input { outline: 2px solid #FF6B5A; outline-offset: 2px; }
+
+/* vista "secreta" del PDF */
+.peek { position: relative; width: 100%; max-width: 420px; aspect-ratio: 4 / 4.6; justify-self: center; }
+.peek__p { position: absolute; width: 68%; border-radius: 14px; box-shadow: 0 40px 70px -30px rgba(0,0,0,.9); transition: transform .6s var(--ease); }
+.peek__p--1 { left: 4%; top: 6%; transform: rotate(-6deg); z-index: 3; }
+.peek__p--2 { left: 30%; top: 2%; transform: rotate(5deg); z-index: 2; filter: brightness(.85); }
+.peek__p--3 { left: 22%; top: 14%; transform: rotate(14deg); z-index: 1; filter: brightness(.7); }
+.peek:hover .peek__p--1 { transform: rotate(-9deg) translate(-10px,-6px); }
+.peek:hover .peek__p--2 { transform: rotate(8deg) translate(14px,-8px); }
+.peek:hover .peek__p--3 { transform: rotate(18deg) translate(20px,6px); }
+.peek__lock { position: absolute; z-index: 4; right: 2%; top: 46%; display: inline-flex; align-items: center; gap: 8px; background: var(--paper); color: var(--ink); font-weight: 600; font-size: 14px; padding: 10px 16px; border-radius: 999px; box-shadow: 0 16px 30px -12px rgba(0,0,0,.7); transform: rotate(4deg); }
+.peek__pages { position: absolute; z-index: 4; left: 8%; bottom: 0; background: #AD8663; color: var(--paper); font-weight: 600; font-size: 13px; padding: 8px 14px; border-radius: 999px; transform: rotate(-4deg); }
+@media (max-width: 980px) { .peek { max-width: 320px; margin-bottom: 10px; } }
+.peek__lock { top: auto; bottom: 16%; right: 0; } .peek__pages { bottom: 2%; }
+
 </style>
 </head>
 <body>
@@ -437,18 +456,16 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
     <!-- MI HISTORIA -->
     <section class="guide" id="historia">
       <div class="wrap guide__grid">
-        <div class="letter reveal" aria-hidden="true">
-          <div class="letter__paper">
-            <p class="letter__to">para ti,</p>
-            <p class="letter__title">lo que no<br><em>cuento.</em></p>
-            <span class="letter__line"></span><span class="letter__line"></span><span class="letter__line short"></span>
-            <p class="letter__sign">claudia</p>
-          </div>
-          <span class="letter__seal">k.</span>
+        <div class="peek reveal" aria-hidden="true">
+          <img class="peek__p peek__p--3" src="secreto-3.jpg" alt="" loading="lazy" width="540" height="675">
+          <img class="peek__p peek__p--2" src="secreto-2.jpg" alt="" loading="lazy" width="540" height="675">
+          <img class="peek__p peek__p--1" src="secreto-1.jpg" alt="" loading="lazy" width="540" height="675">
+          <span class="peek__lock"><svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 1 1 6 0v3H9Z"/></svg>Solo por email</span>
+          <span class="peek__pages">13 páginas</span>
         </div>
         <div class="guide__text reveal">
           <p class="eyebrow eyebrow--light">Gratis · directo a tu email</p>
-          <h2 class="h2">Lo que no cuento <em>en los vídeos.</em></h2>
+          <h2 class="h2">Lo que no cuento<br><em>en los vídeos.</em></h2>
           <p>Cómo empezó todo, lo que salió mal y lo que aprendí por el camino.</p>
           <form class="form" id="form-guia" novalidate>
             <div class="form__row">
@@ -531,7 +548,7 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
 
   <footer class="foot">
     <div class="wrap foot__in">
-      <p>© <span id="year"></span> Claudia Fernández · Klauvara <span style="opacity:.4">· v15</span></p>
+      <p>© <span id="year"></span> Claudia Fernández · Klauvara <span style="opacity:.4">· v17</span></p>
       <details class="privacy" id="privacidad">
         <summary>Protección de datos</summary>
         <p>Responsable: Claudia Fernández (Klauvara), hola@klauvara.com. Finalidad: enviarte mi historia y novedades de Klauvara. Legitimación: tu consentimiento. Tus datos se guardan en una hoja de cálculo de mi cuenta de Google y no se ceden a terceros. Puedes acceder, rectificar o pedir que borre tus datos escribiendo a hola@klauvara.com.</p>
@@ -635,20 +652,28 @@ const form = document.getElementById('form-guia');
 if (form) {
   const msg = form.querySelector('.form__msg');
   const done = document.querySelector('.form__done');
+  const check = form.querySelector('.check');
+  check.querySelector('input').addEventListener('change', () => { check.classList.remove('check--error'); msg.textContent = ''; });
   form.addEventListener('submit', async e => {
     e.preventDefault();
     msg.textContent = '';
+    check.classList.remove('check--error');
     const d = new FormData(form);
     const nombre = (d.get('nombre') || '').trim();
     const email = (d.get('email') || '').trim();
     if (!nombre) { msg.textContent = 'Dime tu nombre.'; return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = 'Revisa el email, parece que no está bien.'; return; }
-    if (!d.get('acepto')) { msg.textContent = 'Marca la casilla para que te la pueda enviar.'; return; }
+    if (!d.get('acepto')) {
+      msg.textContent = 'Tienes que aceptar la casilla para poder continuar.';
+      check.classList.add('check--error');
+      check.querySelector('input').focus();
+      return;
+    }
     if (d.get('web')) return; // bots
     if (!SCRIPT_URL.startsWith('https://')) { msg.textContent = 'Estoy terminando de prepararla. Vuelve en unos días.'; return; }
     const button = form.querySelector('button');
     button.disabled = true; button.textContent = 'Enviando…';
-    const body = new URLSearchParams({ nombre, email, origen: new URLSearchParams(location.search).get('o') || 'web' });
+    const body = new URLSearchParams({ nombre, email, acepto: 'si', origen: new URLSearchParams(location.search).get('o') || 'web' });
     try { await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body }); } catch (err) {}
     const nom = nombre.split(' ')[0];
     done.querySelector('.form__name').textContent = nom;
