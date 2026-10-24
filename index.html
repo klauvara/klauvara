@@ -390,6 +390,16 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
 .brands__actions { align-items: center; gap: 22px; }
 @media (max-width: 980px) { .tool__grid { grid-template-columns: 1fr; } }
 
+.facts { grid-template-columns: repeat(2, 1fr) !important; }
+.facts li { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.facts li:nth-child(2n) { border-right: 0; }
+.facts li:nth-child(n+3) { border-bottom: 0; }
+.facts small { display: block; font-size: 13px; font-weight: 500; color: var(--ink-soft); margin-top: 4px; }
+@media (max-width: 760px) { .facts { grid-template-columns: 1fr !important; } .facts li { border-right: 0 !important; border-bottom: 1px solid var(--line) !important; } .facts li:last-child { border-bottom: 0 !important; } }
+
+.tool__name { display: flex; align-items: center; gap: 14px; }
+.tool__name img { width: 52px; height: 52px; border-radius: 50%; }
+
 </style>
 </head>
 <body>
@@ -444,7 +454,7 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
         </div>
         <div class="rail">
           <a class="video video--feat reveal" href="https://www.youtube.com/watch?v=me-VSRYuJYA" target="_blank" rel="noopener">
-            <span class="video__img"><img src="video-1.jpg" alt="" width="1280" height="720"><span class="play" aria-hidden="true"></span></span>
+            <span class="video__img"><img src="video-1.jpg?v=2" alt="" width="1280" height="720"><span class="play" aria-hidden="true"></span></span>
             <span class="video__meta"><h3>Por qué todas las marcas parecen una secta hoy en día</h3></span>
           </a>
           <a class="video reveal" href="https://www.youtube.com/watch?v=U79sUEmxNso" target="_blank" rel="noopener">
@@ -483,7 +493,7 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
             <div class="form__row">
               <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="given-name" required maxlength="80" aria-label="Tu nombre">
               <input type="email" name="email" placeholder="Tu email" autocomplete="email" required maxlength="120" aria-label="Tu email">
-              <button class="btn btn--light" type="submit">Quiero las 13 páginas</button>
+              <button class="btn btn--light" type="submit">Desbloquear gratis</button>
             </div>
             <input class="hp" type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
             <label class="check">
@@ -508,7 +518,7 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
           <h2 class="h2">Así encuentro <em>mis ideas.</em></h2>
         </div>
         <a class="tool__card reveal" href="https://1of10.com/?via=klauvara" target="_blank" rel="sponsored noopener">
-          <span class="tool__name">1of10</span>
+          <span class="tool__name"><img src="logo-1of10.png" alt="" width="160" height="160">1of10</span>
           <span class="tool__desc">La herramienta que uso para ver qué ideas y formatos están captando atención en YouTube antes de grabar.</span>
           <span class="tool__cta">Probar 1of10 ↗</span>
           <span class="tool__note">Enlace de afiliado: si te suscribes, me llevo una pequeña comisión sin coste extra para ti.</span>
@@ -526,8 +536,9 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
         </div>
         <div class="brands__grid">
           <ul class="facts reveal">
-            <li><span>Audiencia</span>España y Latinoamérica</li>
-            <li><span>Temas</span>Negocios, marcas y consumo</li>
+            <li><span>Edad</span>25–44 años <small>62 % de la audiencia</small></li>
+            <li><span>Países</span>España, México, Argentina y Colombia</li>
+            <li><span>Público</span>53 % mujeres · 47 % hombres</li>
             <li><span>Ritmo</span>Un vídeo cada domingo</li>
           </ul>
           <div class="trust reveal">
@@ -576,7 +587,7 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
 
   <footer class="foot">
     <div class="wrap foot__in">
-      <p>© <span id="year"></span> Claudia Fernández · Klauvara <span style="opacity:.4">· v18</span></p>
+      <p>© <span id="year"></span> Claudia Fernández · Klauvara <span style="opacity:.4">· v20</span></p>
       <details class="privacy" id="privacidad">
         <summary>Protección de datos</summary>
         <p>Responsable: Claudia Fernández (Klauvara), hola@klauvara.com. Finalidad: enviarte mi historia y novedades de Klauvara. Legitimación: tu consentimiento. Tus datos se guardan en una hoja de cálculo de mi cuenta de Google y no se ceden a terceros. Puedes acceder, rectificar o pedir que borre tus datos escribiendo a hola@klauvara.com.</p>
