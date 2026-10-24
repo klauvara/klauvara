@@ -2,20 +2,71 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <script>if (window.top !== window.self) { try { window.top.location = window.self.location; } catch (e) { document.documentElement.style.display = 'none'; } }</script>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qB01JqjT+mB6JKcHXYG+68RppGRiMydDMi58H8fkYqk=' 'sha256-l7yDaCvIanYo3uXAPhtwCwuHWj/6ku7ics+9eIv91fk=' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://klauvara.goatcounter.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://klauvara.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Claudia Fernández · Klauvara</title>
-  <meta name="description" content="Creando cosas, persiguiendo ideas y descubriendo hasta dónde puedo llegar. Un vídeo nuevo cada domingo en YouTube.">
+  <title>Claudia Fernández (Klauvara) · Negocios, marcas e internet en YouTube</title>
+  <meta name="description" content="Soy Claudia, creo vídeos sobre negocios, marcas y consumo. Un vídeo nuevo cada domingo en YouTube. Llévate gratis lo que no cuento en los vídeos.">
+  <link rel="canonical" href="https://klauvara.com/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Claudia Fernández">
   <meta name="theme-color" content="#AD8663">
-  <meta property="og:title" content="Claudia Fernández · Klauvara">
-  <meta property="og:description" content="Creando cosas, persiguiendo ideas y descubriendo hasta dónde puedo llegar.">
-  <meta property="og:image" content="https://klauvara.com/og-image.jpg">
+  <meta property="og:site_name" content="Klauvara">
+  <meta property="og:locale" content="es_ES">
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <meta property="og:url" content="https://klauvara.com/">
+  <meta property="og:title" content="Claudia Fernández · Klauvara">
+  <meta property="og:description" content="Negocios, marcas e internet. Un vídeo nuevo cada domingo. Llévate gratis lo que no cuento en los vídeos.">
+  <meta property="og:image" content="https://klauvara.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Claudia Fernández, Klauvara">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claudia Fernández · Klauvara">
+  <meta name="twitter:description" content="Negocios, marcas e internet. Un vídeo nuevo cada domingo.">
+  <meta name="twitter:image" content="https://klauvara.com/og-image.jpg">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" as="image" href="retrato-claro.webp" fetchpriority="high">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://klauvara.com/#claudia",
+        "name": "Claudia Fernández",
+        "alternateName": "Klauvara",
+        "url": "https://klauvara.com/",
+        "image": "https://klauvara.com/retrato-claro.webp",
+        "email": "mailto:hola@klauvara.com",
+        "jobTitle": "Creadora de contenido en YouTube",
+        "knowsAbout": ["Negocios", "Marcas", "Marketing", "Consumo", "YouTube", "Estrategia de contenido"],
+        "sameAs": [
+          "https://www.youtube.com/@klauvara",
+          "https://www.instagram.com/klauvara",
+          "https://www.tiktok.com/@klauvara",
+          "https://www.linkedin.com/in/claudia-fern%C3%A1ndez-508153402"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://klauvara.com/#web",
+        "url": "https://klauvara.com/",
+        "name": "Klauvara",
+        "inLanguage": "es",
+        "publisher": { "@id": "https://klauvara.com/#claudia" }
+      }
+    ]
+  }
+  </script>
+  <link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
   <style>
+@font-face{font-family:"Inter";src:url(fonts/inter.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Playfair Display";src:url(fonts/playfair.woff2) format("woff2");font-weight:400 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Playfair Display";src:url(fonts/playfair-italic.woff2) format("woff2");font-weight:400 900;font-style:italic;font-display:swap}
 /* =========================================================
    KLAUVARA · estilos
    Cambia los colores aquí y se actualiza toda la web.
@@ -400,6 +451,14 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
 .tool__name { display: flex; align-items: center; gap: 14px; }
 .tool__name img { width: 52px; height: 52px; border-radius: 50%; }
 
+.form__legal { font-size: 11.5px; line-height: 1.5; color: #9E9083; padding-left: 6px; max-width: 46em; }
+.form__legal a, .check a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.foot__legal { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+.foot__legal a { color: #D4C7BA; text-decoration: none; }
+.foot__legal a:hover { color: var(--paper); text-decoration: underline; }
+/* contraste: textos pequeños sobre el beige en blanco puro */
+.hero__lead, .contact__note, .contact__grid h3 { color: #FFFFFF; }
+.hero__lead { font-weight: 500; }
 </style>
 </head>
 <body>
@@ -407,7 +466,7 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
 
   <header class="top">
     <div class="wrap top__in">
-      <a href="#" class="mark" aria-label="Klauvara, inicio">k.</a>
+      <a href="/" class="mark" aria-label="Klauvara, inicio">k.</a>
       <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menú</button>
       <nav id="nav" class="nav">
         <a href="#videos">Vídeos</a>
@@ -437,7 +496,7 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
           </div>
         </div>
         <figure class="hero__media">
-          <img class="hero__photo2" src="retrato-claro.jpg" alt="Claudia Fernández, @klauvara" width="800" height="810">
+          <img class="hero__photo2" src="retrato-claro.webp" alt="Claudia Fernández, creadora de Klauvara, sonriendo" fetchpriority="high" decoding="async" width="800" height="810">
         </figure>
       </div>
       <div class="ticker" aria-hidden="true">
@@ -454,15 +513,15 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
         </div>
         <div class="rail">
           <a class="video video--feat reveal" href="https://www.youtube.com/watch?v=me-VSRYuJYA" target="_blank" rel="noopener">
-            <span class="video__img"><img src="video-1.jpg?v=2" alt="" width="1280" height="720"><span class="play" aria-hidden="true"></span></span>
+            <span class="video__img"><img src="video-1.webp" alt="Miniatura del vídeo: Por qué todas las marcas parecen una secta hoy en día" decoding="async" width="1280" height="720"><span class="play" aria-hidden="true"></span></span>
             <span class="video__meta"><h3>Por qué todas las marcas parecen una secta hoy en día</h3></span>
           </a>
           <a class="video reveal" href="https://www.youtube.com/watch?v=U79sUEmxNso" target="_blank" rel="noopener">
-            <span class="video__img"><img src="video-ferrari.jpg" alt="" loading="lazy" width="1280" height="720"><span class="play" aria-hidden="true"></span></span>
+            <span class="video__img"><img src="video-ferrari.webp" alt="Miniatura del vídeo: Por qué todo parece una copia barata hoy en día" decoding="async" loading="lazy" width="1280" height="720"><span class="play" aria-hidden="true"></span></span>
             <span class="video__meta"><h3>Por qué todo parece una copia barata hoy en día</h3></span>
           </a>
           <a class="video reveal" href="https://www.youtube.com/watch?v=Xg23v5hyKBw" target="_blank" rel="noopener">
-            <span class="video__img"><img src="video-lujo.jpg" alt="" loading="lazy" width="1280" height="720"><span class="play" aria-hidden="true"></span></span>
+            <span class="video__img"><img src="video-lujo.webp" alt="Miniatura del vídeo: La verdad detrás del precio del lujo" decoding="async" loading="lazy" width="1280" height="720"><span class="play" aria-hidden="true"></span></span>
             <span class="video__meta"><h3>La verdad detrás del precio del lujo</h3></span>
           </a>
         </div>
@@ -479,9 +538,9 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
     <section class="guide" id="historia">
       <div class="wrap guide__grid">
         <div class="peek reveal" aria-hidden="true">
-          <img class="peek__p peek__p--3" src="secreto-3.jpg" alt="" loading="lazy" width="540" height="675">
-          <img class="peek__p peek__p--2" src="secreto-2.jpg" alt="" loading="lazy" width="540" height="675">
-          <img class="peek__p peek__p--1" src="secreto-1.jpg" alt="" loading="lazy" width="540" height="675">
+          <img class="peek__p peek__p--3" src="secreto-3.webp" alt="" decoding="async" loading="lazy" width="540" height="675">
+          <img class="peek__p peek__p--2" src="secreto-2.webp" alt="" decoding="async" loading="lazy" width="540" height="675">
+          <img class="peek__p peek__p--1" src="secreto-1.webp" alt="" decoding="async" loading="lazy" width="540" height="675">
           <span class="peek__lock"><svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 1 1 6 0v3H9Z"/></svg>Solo por email</span>
           <span class="peek__pages">13 páginas</span>
         </div>
@@ -498,9 +557,10 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
             <input class="hp" type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
             <label class="check">
               <input type="checkbox" name="acepto" required>
-              <span>Acepto recibir emails de Klauvara. Puedes darte de baja cuando quieras. <a href="#privacidad">Datos</a></span>
+              <span>He leído la <a href="privacidad.html">política de privacidad</a> y acepto recibir emails de Klauvara. Puedes darte de baja con un clic cuando quieras.</span>
             </label>
             <p class="form__msg" role="alert"></p>
+            <p class="form__legal">Responsable: Claudia Fernández. Finalidad: enviarte la guía y algunos emails. Tus datos se guardan en Kit, mi herramienta de email, y no se ceden a nadie. Puedes acceder, corregir o borrarlos en hola@klauvara.com. <a href="privacidad.html">Más información</a>.</p>
           </form>
           <div class="form__done" role="status" hidden>
             <h3>Hecho, <span class="form__name"></span>.</h3>
@@ -518,7 +578,7 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
           <h2 class="h2">Así encuentro <em>mis ideas.</em></h2>
         </div>
         <a class="tool__card reveal" href="https://1of10.com/?via=klauvara" target="_blank" rel="sponsored noopener">
-          <span class="tool__name"><img src="logo-1of10.png" alt="" width="160" height="160">1of10</span>
+          <span class="tool__name"><img src="logo-1of10.webp" alt="Logo de 1of10" loading="lazy" width="160" height="160">1of10</span>
           <span class="tool__desc">La herramienta que uso para ver qué ideas y formatos están captando atención en YouTube antes de grabar.</span>
           <span class="tool__cta">Probar 1of10 ↗</span>
           <span class="tool__note">Enlace de afiliado: si te suscribes, me llevo una pequeña comisión sin coste extra para ti.</span>
@@ -544,7 +604,7 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
           <div class="trust reveal">
             <p class="eyebrow">Han confiado en mí</p>
             <div class="trust__logo">
-              <img src="logo-higgsfield.png" alt="" width="160" height="160">
+              <img src="logo-higgsfield.webp" alt="Logo de Higgsfield AI" loading="lazy" width="160" height="160">
               <span>Higgsfield AI</span>
             </div>
           </div>
@@ -587,11 +647,13 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
 
   <footer class="foot">
     <div class="wrap foot__in">
-      <p>© <span id="year"></span> Claudia Fernández · Klauvara <span style="opacity:.4">· v20</span></p>
-      <details class="privacy" id="privacidad">
-        <summary>Protección de datos</summary>
-        <p>Responsable: Claudia Fernández (Klauvara), hola@klauvara.com. Finalidad: enviarte mi historia y novedades de Klauvara. Legitimación: tu consentimiento. Tus datos se guardan en una hoja de cálculo de mi cuenta de Google y no se ceden a terceros. Puedes acceder, rectificar o pedir que borre tus datos escribiendo a hola@klauvara.com.</p>
-      </details>
+      <p>© <span id="year"></span> Claudia Fernández · Klauvara <span style="opacity:.4">· v22</span></p>
+      <nav class="foot__legal" aria-label="Información legal">
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="terminos.html">Términos</a>
+      </nav>
     </div>
   </footer>
 
@@ -688,6 +750,7 @@ document.querySelectorAll('button.copy').forEach(b => b.addEventListener('click'
 
 // Formulario de "mi historia"
 const form = document.getElementById('form-guia');
+const cargada = Date.now();
 if (form) {
   const msg = form.querySelector('.form__msg');
   const done = document.querySelector('.form__done');
@@ -708,12 +771,13 @@ if (form) {
       check.querySelector('input').focus();
       return;
     }
-    if (d.get('web')) return; // bots
+    if (d.get('web') || Date.now() - cargada < 3000) { form.hidden = true; done.hidden = false; return; } // bots: rellenan el campo oculto o envían en menos de 3 s
     if (!SCRIPT_URL.startsWith('https://')) { msg.textContent = 'Estoy terminando de prepararla. Vuelve en unos días.'; return; }
     const button = form.querySelector('button');
     button.disabled = true; button.textContent = 'Enviando…';
-    const body = new URLSearchParams({ nombre, email, acepto: 'si', origen: new URLSearchParams(location.search).get('o') || 'web' });
+    const body = new URLSearchParams({ nombre, email, acepto: 'si', web: d.get('web') || '', origen: new URLSearchParams(location.search).get('o') || 'web' });
     try { await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body }); } catch (err) {}
+    if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'guia-enviada', title: 'Formulario de la guía enviado', event: true });
     const nom = nombre.split(' ')[0];
     done.querySelector('.form__name').textContent = nom;
     form.hidden = true;
@@ -735,7 +799,7 @@ if (modalEl) {
   modalEl.addEventListener('click', e => { if (e.target === modalEl) cerrar(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrar(); });
 }
-
 </script>
+  <script data-goatcounter="https://klauvara.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
