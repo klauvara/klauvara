@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#AD8663">
   <meta property="og:title" content="Claudia Fernández · Klauvara">
   <meta property="og:description" content="Creando cosas, persiguiendo ideas y descubriendo hasta dónde puedo llegar.">
-  <meta property="og:image" content="https://klauvara.github.io/klauvara/og-image.jpg">
+  <meta property="og:image" content="https://klauvara.com/og-image.jpg">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -378,6 +378,18 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
 @media (max-width: 980px) { .peek { max-width: 320px; margin-bottom: 10px; } }
 .peek__lock { top: auto; bottom: 16%; right: 0; } .peek__pages { bottom: 2%; }
 
+/* herramienta (afiliado) */
+.tool { padding: clamp(70px, 8vw, 110px) 0 0; }
+.tool__grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(30px, 6vw, 80px); align-items: center; }
+.tool__card { display: grid; gap: 12px; text-decoration: none; background: var(--sand); border-radius: var(--r); padding: 34px 36px; transition: transform .3s var(--ease), box-shadow .3s; }
+.tool__card:hover { transform: translateY(-4px); box-shadow: 0 30px 50px -30px rgba(0,0,0,.35); }
+.tool__name { font-size: 34px; font-weight: 600; letter-spacing: -.03em; }
+.tool__desc { font-size: 17px; color: var(--ink-soft); line-height: 1.5; }
+.tool__cta { justify-self: start; margin-top: 8px; background: var(--ink); color: var(--paper); font-weight: 600; font-size: 15px; padding: 13px 22px; border-radius: 999px; }
+.tool__note { font-size: 12.5px; color: var(--ink-soft); opacity: .8; }
+.brands__actions { align-items: center; gap: 22px; }
+@media (max-width: 980px) { .tool__grid { grid-template-columns: 1fr; } }
+
 </style>
 </head>
 <body>
@@ -471,7 +483,7 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
             <div class="form__row">
               <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="given-name" required maxlength="80" aria-label="Tu nombre">
               <input type="email" name="email" placeholder="Tu email" autocomplete="email" required maxlength="120" aria-label="Tu email">
-              <button class="btn btn--light" type="submit">Quiero leerla</button>
+              <button class="btn btn--light" type="submit">Quiero las 13 páginas</button>
             </div>
             <input class="hp" type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
             <label class="check">
@@ -485,6 +497,22 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
             <p>Revisa tu email en unos minutos (y el spam, por si acaso).</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- HERRAMIENTA -->
+    <section class="tool" id="herramientas">
+      <div class="wrap tool__grid">
+        <div class="reveal">
+          <p class="eyebrow">Lo que uso</p>
+          <h2 class="h2">Así encuentro <em>mis ideas.</em></h2>
+        </div>
+        <a class="tool__card reveal" href="https://1of10.com/?via=klauvara" target="_blank" rel="sponsored noopener">
+          <span class="tool__name">1of10</span>
+          <span class="tool__desc">La herramienta que uso para ver qué ideas y formatos están captando atención en YouTube antes de grabar.</span>
+          <span class="tool__cta">Probar 1of10 ↗</span>
+          <span class="tool__note">Enlace de afiliado: si te suscribes, me llevo una pequeña comisión sin coste extra para ti.</span>
+        </a>
       </div>
     </section>
 
@@ -512,7 +540,7 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
         </div>
         <div class="brands__actions reveal">
           <a class="btn btn--dark" href="mailto:hola@klauvara.com?subject=Media%20kit%20Klauvara&body=Hola%20Claudia%2C%0A%0AMe%20gustar%C3%ADa%20recibir%20tu%20media%20kit.%0A%0AMarca%3A%20%0AProducto%3A%20%0A">Pedir media kit</a>
-          <a class="btn btn--line-dark" href="mailto:hola@klauvara.com?subject=Colaboraci%C3%B3n%20con%20Klauvara">Proponer una colaboración</a>
+          <a class="link-arrow" href="mailto:hola@klauvara.com?subject=Colaboraci%C3%B3n%20con%20Klauvara">o propón una colaboración</a>
         </div>
       </div>
     </section>
@@ -548,7 +576,7 @@ em, .hero__title em, .h2 em, .contact__title em { font-family: "Playfair Display
 
   <footer class="foot">
     <div class="wrap foot__in">
-      <p>© <span id="year"></span> Claudia Fernández · Klauvara <span style="opacity:.4">· v17</span></p>
+      <p>© <span id="year"></span> Claudia Fernández · Klauvara <span style="opacity:.4">· v18</span></p>
       <details class="privacy" id="privacidad">
         <summary>Protección de datos</summary>
         <p>Responsable: Claudia Fernández (Klauvara), hola@klauvara.com. Finalidad: enviarte mi historia y novedades de Klauvara. Legitimación: tu consentimiento. Tus datos se guardan en una hoja de cálculo de mi cuenta de Google y no se ceden a terceros. Puedes acceder, rectificar o pedir que borre tus datos escribiendo a hola@klauvara.com.</p>
