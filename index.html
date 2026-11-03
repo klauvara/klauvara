@@ -29,7 +29,7 @@
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="preload" as="image" href="claudia.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="claudia-recorte.webp" fetchpriority="high">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -145,25 +145,20 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .top.is-solid .nav__cta { background: var(--ink); color: var(--paper); }
 .menu-btn { display: none; font: inherit; font-weight: 600; background: none; border: 1.5px solid currentColor; color: inherit; border-radius: 999px; padding: 8px 16px; }
 
-/* ---------- portada: texto a la izquierda, foto a la derecha a toda altura ---------- */
-.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: 1fr auto; min-height: 100svh; background: var(--tan); color: var(--paper); overflow: hidden; }
-.hero__media { grid-column: 2; grid-row: 1 / span 2; position: relative; margin: 0; }
-.hero__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%;
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 22%); mask-image: linear-gradient(to right, transparent 0, #000 22%); }
-.hero .hero__grid, .hero .hero__social { grid-column: 1; max-width: none; margin: 0; padding-right: clamp(28px, 5vw, 72px); padding-left: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))); }
-.hero .hero__grid { grid-row: 1; display: flex; align-items: center; padding-top: 112px; padding-bottom: 24px; }
-.hero__text { max-width: 560px; }
-.hero__hi { display: flex; align-items: center; gap: 14px; font-size: 12.5px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: #FFF4E6; }
-.hero__hi::before { content: ""; width: 40px; height: 1px; background: currentColor; }
-.hero__title { margin-top: 24px; font-size: clamp(44px, 4.8vw, 78px); line-height: 1.02; letter-spacing: -.045em; font-weight: 600; }
-.hero__title em { color: #FFF4E6; }
-.line { display: block; overflow: hidden; padding: 0 .12em .1em 0; margin-bottom: -.1em; }
-.line > span { display: inline-block; }
-.hero__lead { margin-top: 24px; font-size: clamp(17px, 1.35vw, 19px); font-weight: 500; color: #FFFFFF; max-width: 30em; }
-.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-.hero .hero__social { grid-row: 2; display: flex; gap: 28px; padding-bottom: 32px; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
-.hero__social a { text-decoration: none; opacity: .85; transition: opacity .2s; }
-.hero__social a:hover { opacity: 1; }
+/* ---------- portada: fondo noche con brillo cálido, foto recortada saliendo de un círculo ---------- */
+.hero { position: relative; overflow: hidden; color: var(--paper); background: radial-gradient(900px 600px at 18% 30%, rgba(173, 134, 99, .32), transparent 65%), radial-gradient(700px 500px at 85% 90%, rgba(124, 94, 70, .35), transparent 70%), var(--night); }
+.hero__grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(24px, 4vw, 64px); align-items: end; min-height: min(100svh, 860px); padding-top: 120px; }
+.hero__text { align-self: center; padding-bottom: 40px; max-width: 640px; }
+.hero__hi { font-size: 13px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--tan-light); }
+.hero__title { margin-top: 22px; font-size: clamp(34px, 3.3vw, 52px); line-height: 1.14; letter-spacing: -.03em; font-weight: 600; text-wrap: wrap; }
+/* palabra clave resaltada: el bloque beige se dibuja de izquierda a derecha */
+.hl { white-space: nowrap; color: var(--paper); background: linear-gradient(var(--tan), var(--tan)) no-repeat 0 0 / 100% 100%; padding: 0 .18em .06em; border-radius: 6px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.hl em { font-weight: 400; }
+.hero__lead { margin-top: 26px; font-size: clamp(17px, 1.3vw, 19px); color: #D9CDC1; max-width: 32em; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.hero__media { position: relative; margin: 0; justify-self: center; width: min(100%, 500px); }
+.hero__circle { position: absolute; left: 50%; bottom: 3%; width: 92%; aspect-ratio: 1; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle at 32% 28%, #C9A787 0%, var(--tan) 48%, var(--tan-deep) 100%); box-shadow: 0 40px 120px -30px rgba(173, 134, 99, .55); }
+.hero__photo { position: relative; display: block; width: 82%; height: auto; margin: 0 auto; }
 
 /* ---------- la guía (tarjeta de suscripción) ---------- */
 .guide { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
@@ -192,6 +187,17 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .form__legal a, .check a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .hp { position: absolute; left: -9999px; }
 
+
+/* ---------- 4 tarjetas con icono ---------- */
+.areas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 44px; }
+.area { background: var(--sand); border-radius: 22px; padding: 26px 24px 28px; transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+.area:hover { transform: translateY(-4px); box-shadow: 0 30px 50px -34px rgba(60, 35, 20, .45); }
+.area__icon { width: 46px; height: 46px; border-radius: 14px; background: var(--paper); color: var(--tan-deep); display: grid; place-items: center; }
+.area h3 { margin-top: 18px; font-size: 20px; font-weight: 600; letter-spacing: -.02em; line-height: 1.2; }
+.area p { margin-top: 8px; font-size: 15px; color: var(--ink-soft); line-height: 1.5; }
+.js .areas .reveal:nth-child(2) { transition-delay: .08s; }
+.js .areas .reveal:nth-child(3) { transition-delay: .16s; }
+.js .areas .reveal:nth-child(4) { transition-delay: .24s; }
 
 /* ---------- vídeos ---------- */
 .rail { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 44px; }
@@ -310,16 +316,16 @@ body.modal-open { overflow: hidden; }
 /* ---------- animaciones ---------- */
 .js .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
 .js .reveal.in { opacity: 1; transform: none; }
-.js .hero__text > :not(h1) { animation: rise .9s var(--ease) both; }
-.js .hero__lead { animation-delay: .35s; }
-.js .hero__actions { animation-delay: .45s; }
-.js .line > span { animation: up 1s var(--ease) both; }
-.js .line + .line > span { animation-delay: .12s; }
-.js .line + .line + .line > span { animation-delay: .24s; }
-.js .hero__photo { animation: enter 2.4s var(--ease) both; }
+.js .hero__text > * { animation: rise .9s var(--ease) both; }
+.js .hero__title { animation-delay: .08s; }
+.js .hero__lead { animation-delay: .3s; }
+.js .hero__actions { animation-delay: .4s; }
+.js .hl { animation: mark 1s .75s var(--ease) both; }
+.js .hero__circle { animation: grow 1.2s .1s var(--ease) both; }
+.js .hero__photo { animation: rise 1.2s .3s var(--ease) both; }
 @keyframes rise { from { opacity: 0; transform: translateY(30px); } }
-@keyframes up { from { transform: translateY(105%); } }
-@keyframes enter { from { opacity: 0; transform: scale(1.12); } }
+@keyframes mark { from { background-size: 0 100%; } }
+@keyframes grow { from { opacity: 0; transform: translateX(-50%) scale(.8); } }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js .reveal { opacity: 1; transform: none; }
@@ -328,15 +334,16 @@ body.modal-open { overflow: hidden; }
 
 /* ---------- tablet ---------- */
 @media (max-width: 980px) {
-  .hero { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto; min-height: 0; }
-  .hero__media { grid-column: 1; grid-row: 1; width: 100%; height: min(70svh, 115vw); }
-  .hero__photo { object-position: 50% 12%; -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%); mask-image: linear-gradient(to bottom, #000 78%, transparent 100%); }
-  .hero .hero__grid { grid-row: 2; padding: 8px var(--gutter) 56px; }
-  .hero .hero__social { display: none; }
+  .hero__grid { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-top: 110px; gap: 40px; }
+  .hero__text { padding-bottom: 0; text-align: center; margin: 0 auto; }
+  .hero__lead { margin-left: auto; margin-right: auto; }
+  .hero__actions { justify-content: center; }
+  .hero__media { width: min(86%, 420px); }
   .guide, .offer, .chapter { grid-template-columns: 1fr; }
   .chapter:nth-child(even) .chapter__img { order: 0; }
   .peek { max-width: 260px; }
   .rail { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .areas { grid-template-columns: 1fr 1fr; }
 }
 
 /* ---------- móvil ---------- */
@@ -346,17 +353,21 @@ body.modal-open { overflow: hidden; }
   .nav.open { display: flex; }
   .nav a { padding: 12px 0; font-size: 18px; }
   .nav__cta { margin-top: 10px; padding: 12px 22px !important; background: var(--ink) !important; color: var(--paper) !important; }
-  .hero__hi { font-size: 11px; letter-spacing: .18em; }
-  .hero__title { font-size: clamp(40px, 11vw, 50px); }
+  .hero__hi { font-size: 11.5px; letter-spacing: .2em; }
+  .hero__title { font-size: clamp(30px, 8vw, 38px); }
+  .hl { white-space: normal; }
   .hero__actions .btn { flex: 1 1 100%; }
   .card { border-radius: 24px; }
   .form__row { grid-template-columns: 1fr; }
-  .hero__hi { gap: 10px; }
-  .hero__hi::before { width: 24px; }
   .mini .btn { flex: 1 1 100%; }
   .actions .btn { flex: 1 1 100%; }
   .tool__card { padding: 20px; }
   .tool__go { display: none; }
+  .areas { grid-template-columns: 1fr; gap: 12px; }
+  .area { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; padding: 20px; }
+  .area__icon { grid-row: span 2; }
+  .area h3 { margin-top: 2px; }
+  .area p { margin-top: 4px; }
 }
 </style>
 </head>
@@ -368,8 +379,8 @@ body.modal-open { overflow: hidden; }
       <a href="/" class="mark" aria-label="Klauvara, inicio">k.</a>
       <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menú</button>
       <nav id="nav" class="nav">
-        <a href="#sobre-mi">Mi historia</a>
         <a href="#ayuda">Trabaja conmigo</a>
+        <a href="#sobre-mi">Sobre mí</a>
         <a href="#videos">Vídeos</a>
         <a href="#contacto" class="nav__cta">Hablemos</a>
       </nav>
@@ -380,72 +391,69 @@ body.modal-open { overflow: hidden; }
 
     <!-- PORTADA -->
     <section class="hero">
-      <figure class="hero__media">
-        <img class="hero__photo" src="claudia.webp" alt="Claudia, la persona detrás de Klauvara" fetchpriority="high" decoding="async" width="800" height="1000">
-      </figure>
       <div class="wrap hero__grid">
         <div class="hero__text">
-          <p class="hero__hi">Hola, soy Klauvara</p>
-          <h1 class="hero__title"><span class="line"><span>Durante años,</span></span><span class="line"><span>nadie me veía.</span></span><span class="line"><span><em>Hoy sí.</em></span></span></h1>
-          <p class="hero__lead">Cuento cómo funcionan los negocios y las marcas por dentro. Y ayudo a quien hace algo bueno a que por fin le vean.</p>
+          <p class="hero__hi">Soy Klauvara</p>
+          <h1 class="hero__title">Antes, nadie me veía.<br>Hoy ayudo a negocios a<br><span class="hl"><em>dejar de ser invisibles.</em></span></h1>
+          <p class="hero__lead">Cuento en YouTube cómo funcionan los negocios y las marcas por dentro. Vídeos nuevos cada semana.</p>
           <div class="hero__actions">
-            <a class="btn btn--dark" href="#sobre-mi">Conoce mi historia</a>
-            <a class="btn btn--line" href="#ayuda">¿Tienes un negocio?</a>
+            <a class="btn btn--light" href="#ayuda">Trabaja conmigo</a>
+            <a class="btn btn--line" href="#sobre-mi">Conoce mi historia</a>
+          </div>
+        </div>
+        <figure class="hero__media" aria-hidden="true">
+          <span class="hero__circle"></span>
+          <img class="hero__photo" src="claudia-recorte.webp" alt="" fetchpriority="high" decoding="async" width="800" height="1000">
+        </figure>
+      </div>
+    </section>
+
+    <!-- LA GUÍA -->
+    <section class="block" id="historia">
+      <div class="wrap">
+        <div class="card card--night guide reveal">
+          <div class="peek" aria-hidden="true">
+            <img class="peek__p peek__p--3" src="secreto-3.webp" alt="" decoding="async" loading="lazy" width="540" height="675">
+            <img class="peek__p peek__p--2" src="secreto-2.webp" alt="" decoding="async" loading="lazy" width="540" height="675">
+            <img class="peek__p peek__p--1" src="secreto-1.webp" alt="" decoding="async" loading="lazy" width="540" height="675">
+            <span class="peek__tag">13 páginas · gratis</span>
+          </div>
+          <div>
+            <span class="kicker">Gratis, en tu email</span>
+            <h2 class="h3">Lo que no cuento<br><em>en los vídeos.</em></h2>
+            <p class="p">La historia completa, con capturas reales: lo que salió mal, los números y lo que haría distinto.</p>
+            <form class="form" id="form-guia" novalidate>
+              <div class="form__row">
+                <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="given-name" required maxlength="80" aria-label="Tu nombre">
+                <input type="email" name="email" placeholder="Tu email" autocomplete="email" required maxlength="120" aria-label="Tu email">
+              </div>
+              <input class="hp" type="text" name="k_trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <label class="check">
+                <input type="checkbox" name="acepto" required>
+                <span>He leído la <a href="privacidad.html">política de privacidad</a> y acepto recibir emails de Klauvara. Puedes darte de baja cuando quieras.</span>
+              </label>
+              <p class="form__msg" role="alert"></p>
+              <button class="btn btn--light" type="submit">Quiero la guía</button>
+              <p class="form__legal">Responsable: Claudia Fernández. Finalidad: enviarte la guía y algunos emails. Tus datos se guardan en Kit y no se ceden a nadie. Para acceder a ellos, corregirlos o borrarlos: hola@klauvara.com. <a href="privacidad.html">Más información</a>.</p>
+            </form>
           </div>
         </div>
       </div>
-      <nav class="hero__social wrap" aria-label="Redes sociales">
-        <a href="https://www.youtube.com/@klauvara" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/klauvara" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.tiktok.com/@klauvara" target="_blank" rel="noopener">TikTok</a>
-      </nav>
     </section>
 
-    <!-- MI HISTORIA -->
-    <section class="block" id="sobre-mi">
+    <!-- LO QUE CUENTO -->
+    <section class="block" id="temas">
       <div class="wrap">
         <div class="center-head reveal">
-          <span class="kicker">Lo que hay detrás de Klauvara</span>
-          <h2 class="h2">Detrás de Klauvara<br><em>está Claudia.</em></h2>
+          <span class="kicker">Lo que cuento en el canal</span>
+          <h2 class="h2">Entender cómo funcionan los negocios<br><em>te cambia la forma de mirar.</em></h2>
         </div>
-        <ol class="chapters">
-          <li class="chapter reveal">
-            <figure class="chapter__img"><img src="historia-1.webp" alt="Claudia de pequeña, disfrazada de pirata" loading="lazy" decoding="async" width="1000" height="800"></figure>
-            <div class="chapter__body">
-              <span class="chapter__n">01 · El sueño</span>
-              <h3>Quería ser <em>youtuber.</em></h3>
-              <p>De pequeña era muy creativa. En el instituto lo escondí para encajar.</p>
-            </div>
-          </li>
-          <li class="chapter reveal">
-            <figure class="chapter__img chapter__img--contain"><img src="historia-2.webp" alt="Algunos de los canales sin cara que Claudia creó" loading="lazy" decoding="async" width="1200" height="320"></figure>
-            <div class="chapter__body">
-              <span class="chapter__n">02 · Invisible</span>
-              <h3>Lo intenté<br><em>sin enseñar la cara.</em></h3>
-              <p>Canal tras canal. Trabajaba muchísimo, pero nadie sabía quién estaba detrás.</p>
-            </div>
-          </li>
-          <li class="chapter reveal">
-            <figure class="chapter__img"><img src="historia-3.webp" alt="Claudia abriendo su primer portátil" loading="lazy" decoding="async" width="1000" height="826"></figure>
-            <div class="chapter__body">
-              <span class="chapter__n">03 · El primer canal</span>
-              <h3>Funcionó.<br><em>Y seguía escondida.</em></h3>
-              <p>Con mi primer portátil, un mes después era partner de YouTube. Pero el miedo a enseñar la cara seguía ahí.</p>
-            </div>
-          </li>
-          <li class="chapter chapter--after reveal">
-            <figure class="chapter__img"><img src="historia-4.webp" alt="Miniatura del primer vídeo de Claudia a cámara" loading="lazy" decoding="async" width="1000" height="554"></figure>
-            <div class="chapter__body">
-              <span class="chapter__n">04 · Hoy</span>
-              <h3>Me atreví.<br><em>Y todo cambió.</em></h3>
-              <p>Mi primer vídeo enseñando la cara superó el medio millón de visualizaciones. Y empezaron a llegar oportunidades que nunca imaginé.</p>
-            </div>
-          </li>
-        </ol>
-        <div class="card bridge reveal">
-          <h2 class="h3">Si me pasó a mí,<br><em>le puede pasar a tu negocio.</em></h2>
-          <div class="actions"><a class="btn btn--light" href="#ayuda">Quiero lo mismo</a></div>
-        </div>
+        <ul class="areas">
+          <li class="area reveal"><span class="area__icon"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M4 8h16v11H4zM9 8V6a3 3 0 0 1 6 0v2M4 13h16"/></svg></span><h3>Tu negocio</h3><p>Por qué unos funcionan y otros no, con casos reales.</p></li>
+          <li class="area reveal"><span class="area__icon"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M6 8h12l-1 12H7zM9 8a3 3 0 0 1 6 0"/></svg></span><h3>Tus compras</h3><p>Cómo te convencen las marcas, y cómo verlo venir.</p></li>
+          <li class="area reveal"><span class="area__icon"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M14.5 9.5c-.5-1-1.4-1.5-2.5-1.5-1.5 0-2.5.8-2.5 2s1 1.6 2.5 2 2.5.9 2.5 2-1 2-2.5 2c-1.1 0-2-.5-2.5-1.5M12 6.5v1.5M12 16v1.5"/></svg></span><h3>Tu dinero</h3><p>Lo que pagas de verdad en lujo, modas y suscripciones.</p></li>
+          <li class="area reveal"><span class="area__icon"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></span><h3>Tu visibilidad</h3><p>Cómo construir algo propio en internet y que te vean.</p></li>
+        </ul>
       </div>
     </section>
 
@@ -506,6 +514,54 @@ body.modal-open { overflow: hidden; }
       </div>
     </section>
 
+    <!-- MI HISTORIA -->
+    <section class="block" id="sobre-mi">
+      <div class="wrap">
+        <div class="center-head reveal">
+          <span class="kicker">Lo que hay detrás de Klauvara</span>
+          <h2 class="h2">Detrás de Klauvara<br><em>está Claudia.</em></h2>
+        </div>
+        <ol class="chapters">
+          <li class="chapter reveal">
+            <figure class="chapter__img"><img src="historia-1.webp" alt="Claudia de pequeña, disfrazada de pirata" loading="lazy" decoding="async" width="1000" height="800"></figure>
+            <div class="chapter__body">
+              <span class="chapter__n">01 · El sueño</span>
+              <h3>Quería ser <em>youtuber.</em></h3>
+              <p>De pequeña era muy creativa. En el instituto lo escondí para encajar.</p>
+            </div>
+          </li>
+          <li class="chapter reveal">
+            <figure class="chapter__img chapter__img--contain"><img src="historia-2.webp" alt="Algunos de los canales sin cara que Claudia creó" loading="lazy" decoding="async" width="1200" height="320"></figure>
+            <div class="chapter__body">
+              <span class="chapter__n">02 · Invisible</span>
+              <h3>Lo intenté<br><em>sin enseñar la cara.</em></h3>
+              <p>Canal tras canal. Trabajaba muchísimo, pero nadie sabía quién estaba detrás.</p>
+            </div>
+          </li>
+          <li class="chapter reveal">
+            <figure class="chapter__img"><img src="historia-3.webp" alt="Claudia abriendo su primer portátil" loading="lazy" decoding="async" width="1000" height="826"></figure>
+            <div class="chapter__body">
+              <span class="chapter__n">03 · El primer canal</span>
+              <h3>Funcionó.<br><em>Y seguía escondida.</em></h3>
+              <p>Con mi primer portátil, un mes después era partner de YouTube. Pero el miedo a enseñar la cara seguía ahí.</p>
+            </div>
+          </li>
+          <li class="chapter chapter--after reveal">
+            <figure class="chapter__img"><img src="historia-4.webp" alt="Miniatura del primer vídeo de Claudia a cámara" loading="lazy" decoding="async" width="1000" height="554"></figure>
+            <div class="chapter__body">
+              <span class="chapter__n">04 · Hoy</span>
+              <h3>Me atreví.<br><em>Y todo cambió.</em></h3>
+              <p>Mi primer vídeo enseñando la cara superó el medio millón de visualizaciones. Y empezaron a llegar oportunidades que nunca imaginé.</p>
+            </div>
+          </li>
+        </ol>
+        <div class="card bridge reveal">
+          <h2 class="h3">Si me pasó a mí,<br><em>le puede pasar a tu negocio.</em></h2>
+          <div class="actions"><a class="btn btn--light" href="#ayuda">Quiero lo mismo</a></div>
+        </div>
+      </div>
+    </section>
+
     <!-- VÍDEOS -->
     <section class="block" id="videos">
       <div class="wrap">
@@ -527,39 +583,6 @@ body.modal-open { overflow: hidden; }
 <!-- VIDEOS:FIN -->
         </div>
         <p class="center-link"><a class="link-arrow" href="https://www.youtube.com/@klauvara" target="_blank" rel="noopener">Todos los vídeos en YouTube</a></p>
-      </div>
-    </section>
-
-    <!-- LA GUÍA -->
-    <section class="block" id="historia">
-      <div class="wrap">
-        <div class="card card--night guide reveal">
-          <div class="peek" aria-hidden="true">
-            <img class="peek__p peek__p--3" src="secreto-3.webp" alt="" decoding="async" loading="lazy" width="540" height="675">
-            <img class="peek__p peek__p--2" src="secreto-2.webp" alt="" decoding="async" loading="lazy" width="540" height="675">
-            <img class="peek__p peek__p--1" src="secreto-1.webp" alt="" decoding="async" loading="lazy" width="540" height="675">
-            <span class="peek__tag">13 páginas · gratis</span>
-          </div>
-          <div>
-            <span class="kicker">Gratis, en tu email</span>
-            <h2 class="h3">Lo que no cuento<br><em>en los vídeos.</em></h2>
-            <p class="p">La historia completa, con capturas reales: lo que salió mal, los números y lo que haría distinto.</p>
-            <form class="form" id="form-guia" novalidate>
-              <div class="form__row">
-                <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="given-name" required maxlength="80" aria-label="Tu nombre">
-                <input type="email" name="email" placeholder="Tu email" autocomplete="email" required maxlength="120" aria-label="Tu email">
-              </div>
-              <input class="hp" type="text" name="k_trap" tabindex="-1" autocomplete="off" aria-hidden="true">
-              <label class="check">
-                <input type="checkbox" name="acepto" required>
-                <span>He leído la <a href="privacidad.html">política de privacidad</a> y acepto recibir emails de Klauvara. Puedes darte de baja cuando quieras.</span>
-              </label>
-              <p class="form__msg" role="alert"></p>
-              <button class="btn btn--light" type="submit">Quiero la guía</button>
-              <p class="form__legal">Responsable: Claudia Fernández. Finalidad: enviarte la guía y algunos emails. Tus datos se guardan en Kit y no se ceden a nadie. Para acceder a ellos, corregirlos o borrarlos: hola@klauvara.com. <a href="privacidad.html">Más información</a>.</p>
-            </form>
-          </div>
-        </div>
       </div>
     </section>
 
