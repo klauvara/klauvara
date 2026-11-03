@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <script>if (window.top !== window.self) { try { window.top.location = window.self.location; } catch (e) { document.documentElement.style.display = 'none'; } }</script>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qB01JqjT+mB6JKcHXYG+68RppGRiMydDMi58H8fkYqk=' 'sha256-jDdBQ+ATuKhiIHr4fc0NfU5RmxHFROrWxro/32auKHw=' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://klauvara.goatcounter.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://klauvara.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qB01JqjT+mB6JKcHXYG+68RppGRiMydDMi58H8fkYqk=' 'sha256-YnJrX/fFLVLEilIx0n7Q9kihUVmo4e21xFTP/WajibU=' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://klauvara.goatcounter.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://klauvara.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Claudia Fernández (Klauvara) · Negocios, marcas e internet en YouTube</title>
@@ -283,6 +283,9 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .final .actions { justify-content: center; margin-top: 34px; }
 .copy { font: inherit; font-size: 14px; font-weight: 600; background: none; color: var(--paper); border: 1.5px solid rgba(251, 248, 244, .6); padding: 13px 22px; border-radius: 999px; cursor: pointer; transition: background .2s, color .2s; }
 .copy:hover { background: var(--paper); color: var(--ink); }
+.mailnote { margin-top: 18px; font-size: 14px; color: #CFC2B5; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.mailnote strong { color: var(--paper); font-weight: 600; }
+.copy--sm { padding: 6px 14px; font-size: 12.5px; }
 .final__b2b { margin-top: 22px; font-size: 14px; color: #FFF4E6; }
 
 /* ---------- pie ---------- */
@@ -412,7 +415,7 @@ body.modal-open { overflow: hidden; }
     <section class="hero">
       <div class="wrap hero__grid">
         <div class="hero__text">
-          <p class="hero__hi">Soy Klauvara</p>
+          <p class="hero__hi">Hola, soy Claudia</p>
           <h1 class="hero__title">Antes, nadie me veía.<br>Hoy ayudo a negocios a<br><span class="hl"><em>dejar de ser invisibles.</em></span></h1>
           <p class="hero__lead">Cuento en YouTube cómo funcionan los negocios y las marcas por dentro. Vídeos nuevos cada semana.</p>
           <div class="hero__actions">
@@ -511,6 +514,7 @@ body.modal-open { overflow: hidden; }
                 <a class="btn btn--light" href="mailto:hola@klauvara.com?subject=Media%20kit%20Klauvara&body=Hola%20Claudia%2C%0A%0AMe%20gustar%C3%ADa%20recibir%20tu%20media%20kit.%0A%0AMarca%3A%20%0AProducto%3A%20%0A">Pedir media kit</a>
                 <a class="link-arrow" href="mailto:hola@klauvara.com?subject=Colaboraci%C3%B3n%20con%20Klauvara">o cuéntame tu idea</a>
               </div>
+              <p class="mailnote">Escríbeme a <strong>hola@klauvara.com</strong> <button class="copy copy--sm" type="button" data-copy="hola@klauvara.com">Copiar</button></p>
             </div>
             <ul class="stats">
               <li><b>25–44 años</b><span>62 % de la audiencia</span></li>
@@ -561,7 +565,7 @@ body.modal-open { overflow: hidden; }
             <div class="chapter__body">
               <span class="chapter__n">03 · El primer canal</span>
               <h3>Funcionó.<br><em>Y seguía escondida.</em></h3>
-              <p>Con mi primer portátil, un mes después era partner de YouTube. Pero el miedo a enseñar la cara seguía ahí.</p>
+              <p>Con mi primer portátil llegué a ser partner de YouTube. Pero el miedo a enseñar la cara seguía ahí.</p>
             </div>
           </li>
           <li class="chapter chapter--after reveal">
@@ -660,7 +664,7 @@ body.modal-open { overflow: hidden; }
         <svg viewBox="0 0 24 24" width="30" height="30"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg>
       </div>
       <p class="modal__eyebrow">Ya está en camino</p>
-      <h3 id="modal-t">¡Hecho, <span class="modal__name"></span>!</h3>
+      <h3 id="modal-t">¡Hecho<span class="modal__name"></span>!</h3>
       <p class="modal__text">Te acabo de enviar <em>lo que no cuento en los vídeos</em> a tu email.</p>
       <div class="modal__tip">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 6.5h18v11H3zM3 7l9 6.5L21 7"/></svg>
@@ -755,7 +759,7 @@ const modal = document.getElementById('modal');
 const espera = ms => new Promise(r => setTimeout(r, ms));
 
 function abrirModal(nombre) {
-  modal.querySelector('.modal__name').textContent = nombre;
+  modal.querySelector('.modal__name').textContent = nombre ? `, ${nombre}` : '';
   modal.hidden = false;
   document.body.classList.add('modal-open');
   requestAnimationFrame(() => modal.classList.add('is-open'));
