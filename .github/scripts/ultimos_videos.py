@@ -10,7 +10,7 @@ reescribe el bloque entre <!-- VIDEOS:INICIO --> y <!-- VIDEOS:FIN -->.
 Lo ejecuta GitHub Actions cada 6 horas (.github/workflows/ultimos-videos.yml).
 Si lo ejecutas en tu ordenador, pásale la carpeta web/.
 """
-import html, io, os, re, sys, urllib.error, urllib.request
+import html, io, os, re, sys, time, urllib.error, urllib.request
 import xml.etree.ElementTree as ET
 from PIL import Image
 
@@ -24,9 +24,16 @@ carpeta = sys.argv[1] if len(sys.argv) > 1 else '.'
 pagina = os.path.join(carpeta, 'index.html')
 
 
-def descargar(url):
-    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
-        return r.read()
+def descargar(url, intentos=1):
+    # el feed de YouTube a veces responde 404 sin motivo: se reintenta antes de rendirse
+    for n in range(intentos):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
+                return r.read()
+        except urllib.error.HTTPError:
+            if n == intentos - 1:
+                raise
+            time.sleep(5 * (n + 1))
 
 
 class SinRedirigir(urllib.request.HTTPRedirectHandler):
@@ -66,7 +73,12 @@ def miniatura(video_id):
     return nombre
 
 
-feed = ET.fromstring(descargar(f'https://www.youtube.com/feeds/videos.xml?channel_id={CANAL}'))
+try:
+    feed = ET.fromstring(descargar(f'https://www.youtube.com/feeds/videos.xml?channel_id={CANAL}', intentos=6))
+except urllib.error.HTTPError as e:
+    # YouTube tiene caídas del feed: la web se queda con los vídeos que ya tiene
+    print(f'El feed de YouTube no responde ({e.code}); no cambio nada.')
+    sys.exit(0)
 videos = []
 for entrada in feed.findall('a:entry', NS):
     video_id = entrada.find('yt:videoId', NS).text
