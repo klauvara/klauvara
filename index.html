@@ -155,10 +155,11 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .hl em { font-weight: 400; }
 .hero__lead { margin-top: 26px; font-size: clamp(17px, 1.3vw, 19px); color: #D9CDC1; max-width: 32em; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
-.hero__media { position: relative; margin: 0; justify-self: start; width: min(116%, 600px); padding-top: 36px; }
-@media (max-width: 1120px) { .hero__media { width: 100%; justify-self: center; } }
-.hero__circle { position: absolute; left: 50%; bottom: 4%; width: 90%; aspect-ratio: 1; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle at 32% 28%, #C9A787 0%, var(--tan) 48%, var(--tan-deep) 100%); box-shadow: 0 40px 120px -30px rgba(173, 134, 99, .55); }
-.hero__photo { position: relative; display: block; width: 84%; height: auto; margin: 0 auto; }
+/* retrato dentro del círculo: el borde curvo recorta los hombros, con un aro fino alrededor */
+.hero__media { position: relative; margin: 0; justify-self: center; align-self: center; width: min(100%, 480px); aspect-ratio: 1; }
+.hero__media::after { content: ""; position: absolute; inset: -16px; border-radius: 50%; border: 1px solid rgba(199, 168, 138, .4); pointer-events: none; }
+.hero__circle { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 32% 28%, #C9A787 0%, var(--tan) 48%, var(--tan-deep) 100%); box-shadow: 0 40px 120px -30px rgba(173, 134, 99, .55); }
+.hero__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: 50% 100%; transform: scale(1.06); transform-origin: 50% 100%; clip-path: circle(47.2% at 50% 47.2%); }
 
 /* ---------- la guía (tarjeta de suscripción) ---------- */
 /* páginas reales de la guía, pixeladas y con candado */
@@ -339,7 +340,7 @@ body.modal-open { overflow: hidden; }
 .js .hero__photo { animation: rise 1.2s .3s var(--ease) both; }
 @keyframes rise { from { opacity: 0; transform: translateY(30px); } }
 @keyframes mark { from { background-size: 0 100%; } }
-@keyframes grow { from { opacity: 0; transform: translateX(-50%) scale(.8); } }
+@keyframes grow { from { opacity: 0; transform: scale(.85); } }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js .reveal { opacity: 1; transform: none; }
@@ -353,7 +354,7 @@ body.modal-open { overflow: hidden; }
   .hero__text { padding: 48px 0 0; text-align: center; margin: 0 auto; }
   .hero__lead { margin-left: auto; margin-right: auto; }
   .hero__actions { justify-content: center; }
-  .hero__media { width: min(86%, 420px); }
+  .hero__media { width: min(78%, 340px); margin: 24px auto 64px; }
   .offer, .chapter { grid-template-columns: 1fr; }
   .chapter:nth-child(even) .chapter__img { order: 0; }
   .rail { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
