@@ -158,8 +158,19 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 38%); mask-image: linear-gradient(to right, transparent 0, #000 38%); }
 
 
+/* ---------- sobre mí: título grande y texto corto ---------- */
+.story { padding: clamp(100px, 12vw, 180px) var(--gutter); text-align: center; }
+.story__block { max-width: 760px; margin: 0 auto; }
+.story .eyebrow { justify-content: center; }
+.story__title { font-size: clamp(44px, 6.4vw, 92px); line-height: 1.02; letter-spacing: -.045em; font-weight: 600; margin-bottom: 18px; }
+.story__block > p:not(.eyebrow) { font-size: clamp(18px, 1.5vw, 20px); color: var(--ink-soft); max-width: 36em; margin: 16px auto 0; }
+.story .link-arrow { display: inline-block; margin-top: 30px; }
+.story__rule { display: block; width: 64px; height: 1px; background: var(--tan); margin: clamp(80px, 9vw, 130px) auto; }
+.js .story__title em { background: linear-gradient(var(--tan), var(--tan)) no-repeat 0 94% / 0 .06em; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: background-size 1.1s .35s var(--ease); }
+.js .in .story__title em { background-size: 100% .06em; }
+
 /* ---------- vídeos ---------- */
-.videos { padding: clamp(70px, 8vw, 120px) 0; }
+.videos { background: var(--sand); padding: clamp(80px, 9vw, 130px) 0; }
 .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
 .rail { display: grid; grid-template-columns: 1.5fr 1fr; grid-template-rows: auto auto; gap: 22px 30px; margin-top: 40px; align-items: start; }
 .video { text-decoration: none; display: flex; flex-direction: column; gap: 12px; text-align: left; }
@@ -373,9 +384,9 @@ body.modal-open { overflow: hidden; }
       <a href="/" class="mark" aria-label="Klauvara, inicio">k.</a>
       <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menú</button>
       <nav id="nav" class="nav">
+        <a href="#sobre-mi">Sobre mí</a>
         <a href="#videos">Vídeos</a>
         <a href="#emprendedores">Emprendedores</a>
-        <a href="#historia">La guía</a>
         <a href="#marcas">Marcas</a>
         <a href="#contacto" class="nav__cta">Hablemos</a>
       </nav>
@@ -409,6 +420,24 @@ body.modal-open { overflow: hidden; }
         <a href="https://www.instagram.com/klauvara" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@klauvara" target="_blank" rel="noopener">TikTok</a>
       </nav>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section class="story" id="sobre-mi">
+      <div class="story__block reveal">
+        <p class="eyebrow">Sobre mí</p>
+        <h2 class="story__title">Hola, soy <em>Claudia.</em></h2>
+        <p>Creo vídeos sobre negocios, marcas, dinero e internet: por qué compramos lo que compramos y cómo se construye algo desde cero.</p>
+        <p>Me especializo en YouTube, vídeo largo y estrategia de contenido. Lo que aprendo en mi canal lo aplico con marcas y emprendedores que quieren hacerse ver.</p>
+      </div>
+      <span class="story__rule" aria-hidden="true"></span>
+      <div class="story__block reveal">
+        <p class="eyebrow">Mis inicios</p>
+        <h2 class="story__title">Empecé <em>sin enseñar la&nbsp;cara.</em></h2>
+        <p>De pequeña quería ser youtuber, pero en el instituto lo escondí para encajar. Años después lo intenté con canales sin cara. Canal tras canal, casi todos fracasaron.</p>
+        <p>Uno funcionó. Aun así, yo seguía escondida. Hasta que me atreví a ponerme delante de la cámara, y empezaron a llegar oportunidades que no imaginaba.</p>
+        <a class="link-arrow" href="#historia">El resto lo cuento en la guía gratis</a>
+      </div>
     </section>
 
     <!-- VÍDEOS -->
@@ -453,7 +482,7 @@ body.modal-open { overflow: hidden; }
         <div class="reveal">
           <p class="eyebrow">Para emprendedores</p>
           <h2 class="h2">¿Tienes un negocio y <em>nadie lo conoce?</em></h2>
-          <p class="lead">Durante años trabajé con canales sin cara. Cuando me atreví a enseñarla, empezaron a llegar oportunidades que no imaginaba.</p>
+          <p class="lead">Lo que aprendí construyendo mis canales lo quiero poner al servicio de tu negocio.</p>
           <p class="lead">Próximamente ayudaré a unas pocas personas a convertir YouTube en el escaparate de su negocio. Cuéntame tu caso y te respondo con un consejo para empezar.</p>
           <div class="actions">
             <a class="btn btn--dark" href="https://forms.gle/wpjkUhy8nPCwjAKq7" target="_blank" rel="noopener">Cuéntame tu caso ↗</a>
