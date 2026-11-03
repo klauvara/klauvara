@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <script>if (window.top !== window.self) { try { window.top.location = window.self.location; } catch (e) { document.documentElement.style.display = 'none'; } }</script>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qB01JqjT+mB6JKcHXYG+68RppGRiMydDMi58H8fkYqk=' 'sha256-KIGvEiyH7ucdJuVzyCb9Ks7lxj30ecfmHr14BmihjeQ=' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://klauvara.goatcounter.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://klauvara.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qB01JqjT+mB6JKcHXYG+68RppGRiMydDMi58H8fkYqk=' 'sha256-Eh8Ja+f+pEIl5sBkrlOQTBTKfpuzpkqqj8AeYYunz/w=' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://klauvara.goatcounter.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://klauvara.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Claudia Fernández (Klauvara) · Negocios, marcas e internet en YouTube</title>
@@ -102,12 +102,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .skip:focus { left: 8px; }
 :focus-visible { outline: 2px solid var(--tan-deep); outline-offset: 3px; border-radius: 6px; }
 
-/* grano de película sobre toda la web */
-body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 90; opacity: .06;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
-/* barra de progreso de lectura */
-.progress { position: fixed; inset: 0 0 auto; height: 3px; z-index: 60; background: var(--ink); transform-origin: 0 50%; transform: scaleX(0); }
 
 .eyebrow { display: flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--tan-deep); margin-bottom: 18px; }
 .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
@@ -154,16 +149,14 @@ body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-in
 .line > span { display: inline-block; }
 .hero__lead { margin-top: 26px; font-size: clamp(17px, 1.4vw, 19px); font-weight: 500; color: #FFFFFF; line-height: 1.55; max-width: 30em; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.hero__social { position: relative; z-index: 1; width: 100%; display: flex; gap: 28px; padding-bottom: 34px; font-size: 12.5px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+.hero__social a { text-decoration: none; opacity: .85; transition: opacity .2s; }
+.hero__social a:hover { opacity: 1; }
 /* foto a pantalla completa, fundida con el beige */
 .hero__media { position: absolute; top: 0; right: 0; bottom: 0; width: 54%; margin: 0; }
 .hero__photo { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%;
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 38%); mask-image: linear-gradient(to right, transparent 0, #000 38%); }
 
-.ticker { position: relative; z-index: 2; background: var(--ink); color: var(--paper); overflow: hidden; padding: 13px 0; }
-.ticker__track { display: flex; gap: 22px; width: max-content; animation: ticker 60s linear infinite; font-family: var(--serif); font-style: italic; font-size: 19px; }
-.ticker span { opacity: .9; }
-.ticker i { font-style: normal; color: var(--tan); font-size: 15px; align-self: center; }
-@keyframes ticker { to { transform: translateX(-50%); } }
 
 /* ---------- vídeos ---------- */
 .videos { padding: clamp(70px, 8vw, 120px) 0; }
@@ -232,6 +225,13 @@ body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-in
 .tool { padding: clamp(70px, 8vw, 110px) 0 0; }
 .tool--feature { background: var(--sand); padding: clamp(90px, 10vw, 150px) 0; }
 .tool--feature .tool__note { opacity: 1; }
+.tool--feature .tool__grid { grid-template-columns: .8fr 1.2fr; }
+.tool__grid > * { min-width: 0; }
+.tool--feature .h2 { margin-bottom: 26px; }
+.clip { position: relative; margin: 0; width: 100%; max-width: 420px; aspect-ratio: 4 / 5; border-radius: 22px; overflow: hidden; background: var(--tan-deep); box-shadow: 0 50px 80px -50px rgba(60, 35, 20, .6); }
+.clip video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.clip figcaption { position: absolute; left: 16px; top: 16px; display: flex; align-items: center; gap: 8px; background: rgba(251, 248, 244, .92); color: var(--ink); font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px; }
+.clip figcaption::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #C8553D; }
 .tool__grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(30px, 6vw, 80px); align-items: center; }
 .tool__card { display: grid; gap: 12px; text-decoration: none; background: var(--sand); border-radius: var(--r); padding: 34px 36px; transition: transform .3s var(--ease), box-shadow .3s; }
 .tool__card:hover { transform: translateY(-4px); box-shadow: 0 30px 50px -30px rgba(0, 0, 0, .35); }
@@ -241,19 +241,6 @@ body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-in
 .tool__cta { justify-self: start; margin-top: 8px; background: var(--ink); color: var(--paper); font-weight: 600; font-size: 15px; padding: 13px 22px; border-radius: 999px; }
 .tool__note { font-size: 12.5px; color: var(--ink-soft); opacity: .8; }
 
-/* tarjeta de canal (ilustración) */
-.channel { margin-top: 36px; max-width: 420px; background: #fff; border: 1px solid var(--sand); border-radius: 22px; padding: 12px 12px 16px; box-shadow: 0 40px 60px -40px rgba(60, 35, 20, .5); transform: rotate(-2.5deg); transition: transform .5s var(--ease); }
-.channel:hover { transform: rotate(0) translateY(-4px); }
-.channel__thumb { position: relative; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; display: grid; place-items: center; text-align: center; color: var(--paper); background: linear-gradient(135deg, var(--tan) 0%, var(--tan-deep) 100%); }
-.channel__thumb::before { content: ""; position: absolute; width: 70%; aspect-ratio: 1; border-radius: 50%; right: -20%; top: -40%; background: radial-gradient(closest-side, rgba(255, 236, 214, .45), transparent); animation: glow 9s ease-in-out infinite alternate; }
-.channel__thumb p { position: relative; font-size: clamp(22px, 2.4vw, 30px); font-weight: 600; letter-spacing: -.03em; line-height: 1.1; }
-.channel__row { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding: 0 4px; }
-.channel__avatar { flex: none; width: 38px; height: 38px; border-radius: 50%; background: var(--sand); display: grid; place-items: center; font-family: var(--serif); font-style: italic; color: var(--tan-deep); }
-.channel__lines { flex: 1; display: grid; gap: 7px; }
-.channel__lines i { display: block; height: 8px; border-radius: 4px; background: var(--sand); }
-.channel__lines i + i { width: 55%; }
-.channel__sub { flex: none; background: var(--ink); color: var(--paper); font-size: 13px; font-weight: 600; padding: 8px 14px; border-radius: 999px; animation: nudge 3.2s var(--ease) infinite; }
-@keyframes nudge { 0%, 70%, 100% { transform: none; } 78% { transform: scale(1.08); } 86% { transform: scale(.97); } }
 .lead { font-size: 19px; color: var(--ink-soft); max-width: 32em; }
 .lead + .lead { margin-top: 14px; }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 30px; }
@@ -343,7 +330,6 @@ body.modal-open { overflow: hidden; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js .reveal { opacity: 1; transform: none; }
   .quote__text .w { opacity: 1; }
-  .progress { display: none; }
 }
 
 /* ---------- responsive ---------- */
@@ -358,9 +344,12 @@ body.modal-open { overflow: hidden; }
   .hero__text { width: auto; margin-top: -90px; padding-bottom: 56px; }
   .rail { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; margin-right: calc(var(--gutter) * -1); padding: 0 var(--gutter) 10px 0; }
   .rail .video { flex: 0 0 80%; scroll-snap-align: start; }
-  .guide__grid, .brands__grid, .tool__grid { grid-template-columns: 1fr; }
+  .guide__grid, .brands__grid, .tool__grid, .tool--feature .tool__grid { grid-template-columns: 1fr; }
+  .clip { max-width: 340px; }
+  .hero__hi { font-size: 11.5px; letter-spacing: .16em; gap: 10px; }
+  .hero__hi::before { width: 24px; }
+  .hero__social { display: none; }
   .peek { max-width: 320px; margin-bottom: 10px; }
-  .channel { max-width: 360px; }
   .contact__grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 760px) {
@@ -378,7 +367,6 @@ body.modal-open { overflow: hidden; }
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
-  <div class="progress" aria-hidden="true"></div>
 
   <header class="top">
     <div class="wrap top__in">
@@ -404,7 +392,7 @@ body.modal-open { overflow: hidden; }
       </figure>
       <div class="wrap hero__grid">
         <div class="hero__text">
-          <p class="hero__hi">Hola, soy Claudia</p>
+          <p class="hero__hi">Claudia Fernández · Klauvara</p>
           <h1 class="hero__title"><span class="line"><span>Acompáñame a</span></span><span class="line"><span>construir algo</span></span><span class="line"><span><em>desde cero.</em></span></span></h1>
           <p class="hero__lead">Negocios, marcas e internet, contados mientras construyo algo propio. Vídeos nuevos cada semana.</p>
           <div class="hero__actions">
@@ -412,13 +400,15 @@ body.modal-open { overflow: hidden; }
               <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"/></svg>
               Ver en YouTube
             </a>
-            <a class="btn btn--ghost" href="#historia">La guía gratis</a>
+            <a class="btn btn--ghost" href="#emprendedores">¿Tienes un negocio?</a>
           </div>
         </div>
       </div>
-      <div class="ticker" aria-hidden="true">
-        <div class="ticker__track"><span>dinero</span><i>✦</i><span>internet</span><i>✦</i><span>negocios</span><i>✦</i><span>ambición</span><i>✦</i><span>construir desde cero</span><i>✦</i><span>dinero</span><i>✦</i><span>internet</span><i>✦</i><span>negocios</span><i>✦</i><span>ambición</span><i>✦</i><span>construir desde cero</span><i>✦</i><span>dinero</span><i>✦</i><span>internet</span><i>✦</i><span>negocios</span><i>✦</i><span>ambición</span><i>✦</i><span>construir desde cero</span><i>✦</i><span>dinero</span><i>✦</i><span>internet</span><i>✦</i><span>negocios</span><i>✦</i><span>ambición</span><i>✦</i><span>construir desde cero</span><i>✦</i><span>dinero</span><i>✦</i><span>internet</span><i>✦</i><span>negocios</span><i>✦</i><span>ambición</span><i>✦</i><span>construir desde cero</span><i>✦</i><span>dinero</span><i>✦</i><span>internet</span><i>✦</i><span>negocios</span><i>✦</i><span>ambición</span><i>✦</i><span>construir desde cero</span><i>✦</i><span>dinero</span><i>✦</i><span>internet</span><i>✦</i><span>negocios</span><i>✦</i><span>ambición</span><i>✦</i><span>construir desde cero</span><i>✦</i><span>dinero</span><i>✦</i><span>internet</span><i>✦</i><span>negocios</span><i>✦</i><span>ambición</span><i>✦</i><span>construir desde cero</span><i>✦</i></div>
-      </div>
+      <nav class="hero__social wrap" aria-label="Redes sociales">
+        <a href="https://www.youtube.com/@klauvara" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/klauvara" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@klauvara" target="_blank" rel="noopener">TikTok</a>
+      </nav>
     </section>
 
     <!-- VÍDEOS -->
@@ -454,21 +444,15 @@ body.modal-open { overflow: hidden; }
     <!-- EMPRENDEDORES -->
     <section class="tool tool--feature" id="emprendedores">
       <div class="wrap tool__grid">
+        <figure class="clip reveal">
+          <video src="a-camara.mp4" poster="a-camara.webp" autoplay muted loop playsinline preload="none" aria-label="Claudia grabando un vídeo a cámara"></video>
+          <figcaption>a cámara</figcaption>
+        </figure>
         <div class="reveal">
           <p class="eyebrow">Para emprendedores</p>
           <h2 class="h2">¿Tienes un negocio y <em>nadie lo conoce?</em></h2>
-          <div class="channel" aria-hidden="true">
-            <div class="channel__thumb"><p>Tu negocio,<br><em>visible.</em></p></div>
-            <div class="channel__row">
-              <span class="channel__avatar">tú</span>
-              <span class="channel__lines"><i></i><i></i></span>
-              <span class="channel__sub">Suscribirse</span>
-            </div>
-          </div>
-        </div>
-        <div class="reveal">
-          <p class="lead">Durante años trabajé desde la sombra, con canales sin cara. Cuando me atreví a enseñarla, empezaron a llegar oportunidades que no imaginaba.</p>
-          <p class="lead">Próximamente ayudaré a unas pocas personas a lanzar su canal de YouTube. Cuéntame tu caso y te respondo con un consejo para empezar.</p>
+          <p class="lead">Durante años trabajé con canales sin cara. Cuando me atreví a enseñarla, empezaron a llegar oportunidades que no imaginaba.</p>
+          <p class="lead">Próximamente ayudaré a unas pocas personas a convertir YouTube en el escaparate de su negocio. Cuéntame tu caso y te respondo con un consejo para empezar.</p>
           <div class="actions">
             <a class="btn btn--dark" href="https://forms.gle/wpjkUhy8nPCwjAKq7" target="_blank" rel="noopener">Cuéntame tu caso ↗</a>
             <span class="tool__note">2 minutos · sin compromiso</span>
@@ -661,9 +645,7 @@ if (frase) {
 
 // Todo lo que depende del scroll, en un solo paso por fotograma
 const cabecera = document.querySelector('.top');
-const barra = document.querySelector('.progress');
 const foto = document.querySelector('.hero__media');
-const bigk = document.querySelector('.bigk');
 let pendiente = false;
 function alScroll() {
   pendiente = false;
@@ -671,8 +653,6 @@ function alScroll() {
   const vh = window.innerHeight;
   cabecera.classList.toggle('is-solid', y > 40);
   if (reduce) return;
-  const total = document.documentElement.scrollHeight - vh;
-  barra.style.transform = `scaleX(${total > 0 ? y / total : 0})`;
   if (y < vh) foto.style.transform = `translateY(${y * 0.18}px)`;
   if (frase) {
     const r = frase.getBoundingClientRect();
@@ -680,11 +660,13 @@ function alScroll() {
     const n = Math.round(p * ws.length);
     ws.forEach((w, k) => w.classList.toggle('on', k < n));
   }
-  const rk = bigk.getBoundingClientRect();
-  if (rk.top < vh) bigk.style.transform = `translateX(${(rk.top - vh) * 0.15}px)`;
 }
 alScroll();
 window.addEventListener('scroll', () => { if (!pendiente) { pendiente = true; requestAnimationFrame(alScroll); } }, { passive: true });
+
+// Vídeo a cámara: quieto si la persona prefiere menos movimiento
+const clip = document.querySelector('.clip video');
+if (clip && reduce) { clip.removeAttribute('autoplay'); clip.pause(); }
 
 // Copiar email
 const toast = document.querySelector('.toast');
