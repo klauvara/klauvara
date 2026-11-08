@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <script>if (window.top !== window.self) { try { window.top.location = window.self.location; } catch (e) { document.documentElement.style.display = 'none'; } }</script>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qB01JqjT+mB6JKcHXYG+68RppGRiMydDMi58H8fkYqk=' 'sha256-YnJrX/fFLVLEilIx0n7Q9kihUVmo4e21xFTP/WajibU=' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://klauvara.goatcounter.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://klauvara.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qB01JqjT+mB6JKcHXYG+68RppGRiMydDMi58H8fkYqk=' 'sha256-uG/vNiEqihQnpNOcmnC40yqTpz28xGx4rVAgY0GEFa0=' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://klauvara.goatcounter.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://klauvara.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Claudia Fernández (Klauvara) · Negocios, marcas e internet en YouTube</title>
-  <meta name="description" content="Klauvara: negocios, marcas e internet por dentro. La historia de Claudia, de canales sin cara a enseñarse, y cómo ayuda a emprendedores a dejar de ser invisibles con YouTube.">
+  <meta name="description" content="Klauvara: negocios, marcas e internet por dentro. La historia de Claudia, de canales sin cara a dar la cara, y cómo ayuda a emprendedores a dejar de ser invisibles con YouTube.">
   <link rel="canonical" href="https://klauvara.com/">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="Claudia Fernández">
@@ -163,30 +163,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 
 /* ---------- la guía (tarjeta de suscripción) ---------- */
 /* páginas reales de la guía, pixeladas y con candado */
-.vault { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); grid-template-areas: "head tiles" "form tiles"; gap: 22px clamp(28px, 4vw, 56px); align-items: center; padding: clamp(26px, 3.6vw, 44px); }
-.vault__head { grid-area: head; align-self: end; }
-.vault__head .h3 { font-size: clamp(26px, 2.4vw, 34px); }
-.vault__head .p { margin-top: 12px; font-size: 16px; }
-.vault__grid { grid-area: tiles; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0; padding: 0; list-style: none; }
-.lock { position: relative; aspect-ratio: 4 / 5; border-radius: 14px; overflow: hidden; background: #2A211B; isolation: isolate; }
-.lock img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); filter: brightness(1.25) contrast(1.05); transition: transform .7s var(--ease); }
-.lock:hover img { transform: scale(1.12); }
-.lock::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(251, 248, 244, .14); background: linear-gradient(to top, rgba(23, 17, 14, .92) 0%, rgba(23, 17, 14, .55) 30%, rgba(23, 17, 14, 0) 60%); }
 /* brillo que recorre las páginas, como contenido sellado */
-.lock::before { content: ""; position: absolute; inset: -20% -60%; z-index: 2; background: linear-gradient(105deg, transparent 40%, rgba(255, 244, 230, .16) 50%, transparent 60%); transform: translateX(-60%); animation: sheen 5.5s ease-in-out infinite; }
-.lock:nth-child(2)::before { animation-delay: .4s; }
-.lock:nth-child(3)::before { animation-delay: .8s; }
-@keyframes sheen { 0%, 55% { transform: translateX(-60%); } 85%, 100% { transform: translateX(60%); } }
-.lock__badge { position: absolute; top: 10px; right: 10px; z-index: 3; width: 30px; height: 30px; border-radius: 50%; background: rgba(251, 248, 244, .94); color: var(--ink); display: grid; place-items: center; transition: transform .3s var(--ease); }
-.lock:hover .lock__badge { transform: rotate(-12deg) scale(1.1); }
-.lock__cap { position: absolute; left: 10px; right: 10px; bottom: 10px; z-index: 3; font-size: 13px; font-weight: 600; line-height: 1.25; letter-spacing: -.01em; color: var(--paper); text-wrap: balance; }
-.lock__cap small { display: block; margin-bottom: 5px; font-size: 10.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tan-light); }
-.js .vault__grid .reveal:nth-child(2) { transition-delay: .06s; }
-.js .vault__grid .reveal:nth-child(3) { transition-delay: .12s; }
-.vault__form { grid-area: form; align-self: start; margin-top: 0; gap: 10px; }
-.vault__form .form__row { grid-template-columns: 1fr 1fr; }
-.vault__form .form__row .btn { grid-column: 1 / -1; }
-.vault__form .form__legal { font-size: 11px; }
 .form { margin-top: 26px; display: grid; gap: 12px; }
 .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .form input[type=text], .form input[type=email] { font: inherit; font-size: 16px; padding: 15px 20px; border-radius: 999px; border: 1px solid rgba(251, 248, 244, .2); background: rgba(251, 248, 244, .07); color: var(--paper); width: 100%; min-width: 0; }
@@ -201,6 +178,24 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .form__legal { font-size: 11.5px; line-height: 1.5; color: #8F8276; }
 .form__legal a, .check a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .hp { position: absolute; left: -9999px; }
+/* guía: tarjeta compacta, imagen a la izquierda y solo email */
+.news { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(24px, 4vw, 56px); align-items: center; padding: clamp(28px, 3.6vw, 48px) clamp(28px, 5vw, 64px); }
+.news__art { position: relative; margin: 0; width: 100%; max-width: 300px; aspect-ratio: 1; justify-self: center; }
+.news__circle { position: absolute; inset: 4%; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(199, 168, 138, .34), rgba(124, 94, 70, .2) 60%, rgba(124, 94, 70, .08) 100%); }
+.news__cover { position: absolute; z-index: 3; width: 50%; left: 25%; top: 13%; border-radius: 10px; transform: rotate(-6deg); box-shadow: 0 30px 50px -20px rgba(0, 0, 0, .75); transition: transform .5s var(--ease); }
+.news__page { position: absolute; width: 42%; top: 20%; border-radius: 9px; filter: brightness(1.2); box-shadow: 0 24px 40px -20px rgba(0, 0, 0, .7); transition: transform .5s var(--ease); }
+.news__page--1 { z-index: 2; left: 47%; transform: rotate(10deg); }
+.news__page--2 { z-index: 1; left: 11%; transform: rotate(-16deg); top: 24%; }
+.news:hover .news__cover { transform: rotate(-3deg) translateY(-6px); }
+.news:hover .news__page--1 { transform: rotate(14deg) translateX(8px); }
+.news:hover .news__page--2 { transform: rotate(-20deg) translateX(-8px); }
+.news__lock { position: absolute; z-index: 4; right: 6%; bottom: 14%; display: inline-flex; align-items: center; gap: 6px; background: var(--paper); color: var(--ink); font-size: 12.5px; font-weight: 600; padding: 8px 13px; border-radius: 999px; transform: rotate(4deg); box-shadow: 0 14px 26px -12px rgba(0, 0, 0, .6); }
+.news__title { font-size: clamp(28px, 2.6vw, 40px); line-height: 1.08; letter-spacing: -.03em; font-weight: 600; }
+.news__text { margin-top: 12px; color: #CFC2B5; font-size: 16.5px; max-width: 30em; }
+.news__form { margin-top: 22px; gap: 10px; max-width: 520px; }
+.news__row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+.news__row .btn { width: auto; white-space: nowrap; }
+.news__form .form__legal { font-size: 11px; }
 
 
 /* ---------- 4 tarjetas con icono ---------- */
@@ -365,7 +360,6 @@ body.modal-open { overflow: hidden; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js .reveal { opacity: 1; transform: none; }
   .quote__text .w { opacity: 1; }
-  .lock::before { display: none; }
 }
 
 /* ---------- tablet ---------- */
@@ -375,10 +369,11 @@ body.modal-open { overflow: hidden; }
   .hero__lead { margin-left: auto; margin-right: auto; }
   .hero__actions { justify-content: center; }
   .hero__media { width: min(78%, 340px); margin: 24px auto 64px; }
-  .offer, .chapter { grid-template-columns: 1fr; }
-  .vault { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "tiles" "form"; }
-  .vault__head { text-align: center; }
-  .vault__grid { max-width: 520px; width: 100%; margin: 0 auto; }
+  .offer, .chapter, .news { grid-template-columns: 1fr; }
+  .news { text-align: center; }
+  .news__text, .news__form { margin-left: auto; margin-right: auto; }
+  .news__art { max-width: 240px; }
+  .news__form .check, .news__form .form__legal { text-align: left; }
   .chapter:nth-child(even) .chapter__img { order: 0; }
   .chapter__img .sticker { width: 38%; right: 2%; bottom: -6%; }
   .chapter__img--stack { margin-bottom: 18px; }
@@ -398,14 +393,6 @@ body.modal-open { overflow: hidden; }
   .hl { white-space: normal; }
   .hero__actions .btn { flex: 1 1 100%; }
   .card { border-radius: 24px; }
-  .form__row, .vault__form .form__row { grid-template-columns: 1fr; }
-  .vault__form .form__row .btn { width: 100%; }
-  .vault__grid { gap: 8px; }
-  .lock { border-radius: 12px; }
-  .lock__badge { top: 7px; right: 7px; width: 24px; height: 24px; }
-  .lock__badge svg { width: 12px; height: 12px; }
-  .lock__cap { left: 8px; right: 8px; bottom: 8px; font-size: 11.5px; }
-  .lock__cap small { font-size: 9px; letter-spacing: .12em; }
   .metrics li { padding: 10px; }
   .metrics b { font-size: 16px; }
   .metrics span { font-size: 11px; }
@@ -449,8 +436,8 @@ body.modal-open { overflow: hidden; }
           <h1 class="hero__title">Antes, nadie me veía.<br>Hoy ayudo a negocios a<br><span class="hl"><em>dejar de ser invisibles.</em></span></h1>
           <p class="hero__lead">Cuento en YouTube cómo funcionan los negocios y las marcas por dentro. Vídeos nuevos cada semana.</p>
           <div class="hero__actions">
-            <a class="btn btn--light" href="#ayuda">Trabaja conmigo</a>
-            <a class="btn btn--line" href="#sobre-mi">Conoce mi historia</a>
+            <a class="btn btn--light" href="https://www.youtube.com/@klauvara" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"/></svg>Ver en YouTube</a>
+            <a class="btn btn--line" href="#ayuda">Trabaja conmigo</a>
           </div>
         </div>
         <figure class="hero__media" aria-hidden="true">
@@ -463,31 +450,31 @@ body.modal-open { overflow: hidden; }
     <!-- LA GUÍA -->
     <section class="block" id="historia">
       <div class="wrap">
-        <div class="card card--night vault reveal">
-          <div class="vault__head">
-            <span class="kicker">Para quien me sigue · Gratis</span>
-            <h2 class="h3">Lo que no cuento<br><em>en los vídeos.</em></h2>
-            <p class="p">Los canales que tuve antes de Klauvara, lo que ganó de verdad el primero y lo que haría distinto si empezara hoy. 13 páginas con capturas reales, directo a tu email.</p>
+        <div class="card card--night news reveal">
+          <figure class="news__art" aria-hidden="true">
+            <span class="news__circle"></span>
+            <img class="news__page news__page--2" src="bloqueada-4.webp" alt="" loading="lazy" decoding="async" width="480" height="600">
+            <img class="news__page news__page--1" src="bloqueada-2.webp" alt="" loading="lazy" decoding="async" width="480" height="600">
+            <img class="news__cover" src="secreto-1.webp" alt="" loading="lazy" decoding="async" width="540" height="675">
+            <span class="news__lock"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 1 1 6 0v3H9Z"/></svg> 13 páginas</span>
+          </figure>
+          <div>
+            <h2 class="news__title">Lo que no cuento<br><em>en los vídeos.</em></h2>
+            <p class="news__text">Los canales que tuve antes de Klauvara, lo que ganó de verdad y lo que haría distinto. Gratis, en tu email.</p>
+            <form class="form news__form" id="form-guia" novalidate>
+              <div class="news__row">
+                <input type="email" name="email" placeholder="Tu email" autocomplete="email" required maxlength="120" aria-label="Tu email">
+                <button class="btn btn--light" type="submit">Quiero la guía</button>
+              </div>
+              <input class="hp" type="text" name="k_trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <label class="check">
+                <input type="checkbox" name="acepto" required>
+                <span>Acepto la <a href="privacidad.html">política de privacidad</a> y recibir emails de Klauvara. Baja con un clic.</span>
+              </label>
+              <p class="form__msg" role="alert"></p>
+              <p class="form__legal">Responsable: Claudia Fernández. Finalidad: enviarte la guía y algunos emails. Tus datos se guardan en Kit y no se ceden. Acceso, rectificación o borrado: hola@klauvara.com. <a href="privacidad.html">Más información</a>.</p>
+            </form>
           </div>
-          <ul class="vault__grid" aria-label="Algunas páginas de la guía, bloqueadas">
-            <li class="lock reveal"><img src="bloqueada-2.webp" alt="" loading="lazy" decoding="async" width="480" height="600"><span class="lock__badge"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 1 1 6 0v3H9Z"/></svg></span><span class="lock__cap"><small>Pág. 04</small>Los canales que fracasaron</span></li>
-            <li class="lock reveal"><img src="bloqueada-4.webp" alt="" loading="lazy" decoding="async" width="480" height="600"><span class="lock__badge"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 1 1 6 0v3H9Z"/></svg></span><span class="lock__cap"><small>Pág. 07</small>Lo que ganó de verdad</span></li>
-            <li class="lock reveal"><img src="bloqueada-5.webp" alt="" loading="lazy" decoding="async" width="480" height="600"><span class="lock__badge"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 1 1 6 0v3H9Z"/></svg></span><span class="lock__cap"><small>Pág. 10</small>5 cosas que haría distinto</span></li>
-          </ul>
-          <form class="form vault__form" id="form-guia" novalidate>
-            <div class="form__row">
-              <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="given-name" required maxlength="80" aria-label="Tu nombre">
-              <input type="email" name="email" placeholder="Tu email" autocomplete="email" required maxlength="120" aria-label="Tu email">
-              <button class="btn btn--light" type="submit"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 1 1 6 0v3H9Z"/></svg> Desbloquear gratis</button>
-            </div>
-            <input class="hp" type="text" name="k_trap" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <label class="check">
-              <input type="checkbox" name="acepto" required>
-              <span>He leído la <a href="privacidad.html">política de privacidad</a> y acepto recibir emails de Klauvara. Puedes darte de baja cuando quieras.</span>
-            </label>
-            <p class="form__msg" role="alert"></p>
-            <p class="form__legal">Responsable: Claudia Fernández. Finalidad: enviarte la guía y algunos emails. Tus datos se guardan en Kit y no se ceden a nadie. Para acceder a ellos, corregirlos o borrarlos: hola@klauvara.com. <a href="privacidad.html">Más información</a>.</p>
-          </form>
         </div>
       </div>
     </section>
@@ -591,7 +578,7 @@ body.modal-open { overflow: hidden; }
             </div>
           </li>
           <li class="chapter reveal">
-            <figure class="chapter__img chapter__img--stack"><img src="historia-3.webp" alt="Claudia abriendo su primer portátil" loading="lazy" decoding="async" width="1000" height="826"><img class="sticker" src="historia-partner.webp" alt="Aviso de YouTube Studio: ¡Enhorabuena! Ya eres partner de YouTube" loading="lazy" decoding="async" width="414" height="502"></figure>
+            <figure class="chapter__img chapter__img--stack"><img src="historia-3.webp" alt="Claudia abriendo su primer portátil" loading="lazy" decoding="async" width="1000" height="826"><img class="sticker" src="historia-partner.webp" alt="Aviso de YouTube Studio: ¡Enhorabuena! Ya eres partner de YouTube" loading="lazy" decoding="async" width="398" height="497"></figure>
             <div class="chapter__body">
               <span class="chapter__n">03 · El primer canal</span>
               <h3>Funcionó.<br><em>Y seguía escondida.</em></h3>
@@ -822,7 +809,6 @@ if (form) {
     const d = new FormData(form);
     const nombre = (d.get('nombre') || '').trim();
     const email = (d.get('email') || '').trim();
-    if (!nombre) { msg.textContent = 'Dime tu nombre.'; form.nombre.focus(); return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = 'Revisa el email, parece que no está bien.'; form.email.focus(); return; }
     if (!d.get('acepto')) {
       msg.textContent = 'Tienes que aceptar la casilla para poder continuar.';
