@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <script>if (window.top !== window.self) { try { window.top.location = window.self.location; } catch (e) { document.documentElement.style.display = 'none'; } }</script>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qB01JqjT+mB6JKcHXYG+68RppGRiMydDMi58H8fkYqk=' 'sha256-uG/vNiEqihQnpNOcmnC40yqTpz28xGx4rVAgY0GEFa0=' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://klauvara.goatcounter.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://klauvara.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qB01JqjT+mB6JKcHXYG+68RppGRiMydDMi58H8fkYqk=' 'sha256-UtgIulunsuJ04piVPnrVgn4drrokoN40cbg8Md03D4Q=' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://klauvara.goatcounter.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://klauvara.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Claudia Fernández (Klauvara) · Negocios, marcas e internet en YouTube</title>
@@ -196,6 +196,13 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .news__row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
 .news__row .btn { width: auto; white-space: nowrap; }
 .news__form .form__legal { font-size: 11px; }
+.news__form[hidden], .news__done[hidden] { display: none; }
+.news__done { margin-top: 24px; }
+.news__done .btn { gap: 10px; }
+.news__note { margin-top: 12px; font-size: 13.5px; color: #B5A799; }
+.modal__box a.btn { margin-top: 22px; width: 100%; }
+.modal__tip.modal__tip--plain { display: block; text-align: center; background: none; border: 0; padding: 0; margin-top: 14px; font-size: 13.5px; }
+.modal__close { margin-top: 10px; font: inherit; font-size: 14px; font-weight: 600; color: var(--ink-soft); background: none; border: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 
 
 /* ---------- 4 tarjetas con icono ---------- */
@@ -403,6 +410,8 @@ body.modal-open { overflow: hidden; }
   .tool__card { padding: 20px; }
   .tool__go { display: none; }
   .areas { grid-template-columns: 1fr; gap: 12px; }
+  .news__row { grid-template-columns: 1fr; }
+  .news__row .btn { width: 100%; }
   .area { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; padding: 20px; }
   .area__icon { grid-row: span 2; }
   .area h3 { margin-top: 2px; }
@@ -460,20 +469,24 @@ body.modal-open { overflow: hidden; }
           </figure>
           <div>
             <h2 class="news__title">Lo que no cuento<br><em>en los vídeos.</em></h2>
-            <p class="news__text">Los canales que tuve antes de Klauvara, lo que ganó de verdad y lo que haría distinto. Gratis, en tu email.</p>
+            <p class="news__text">Los canales que tuve antes de Klauvara, lo que ganó de verdad y lo que haría distinto. Déjame tu email y se desbloquea al momento.</p>
             <form class="form news__form" id="form-guia" novalidate>
               <div class="news__row">
                 <input type="email" name="email" placeholder="Tu email" autocomplete="email" required maxlength="120" aria-label="Tu email">
-                <button class="btn btn--light" type="submit">Quiero la guía</button>
+                <button class="btn btn--light" type="submit">Desbloquear la guía</button>
               </div>
               <input class="hp" type="text" name="k_trap" tabindex="-1" autocomplete="off" aria-hidden="true">
               <label class="check">
                 <input type="checkbox" name="acepto" required>
-                <span>Acepto la <a href="privacidad.html">política de privacidad</a> y recibir emails de Klauvara. Baja con un clic.</span>
+                <span>Acepto la <a href="privacidad.html">política de privacidad</a>. Solo te escribiré cuando haya algo importante: plazas, guías nuevas… Baja con un clic.</span>
               </label>
               <p class="form__msg" role="alert"></p>
-              <p class="form__legal">Responsable: Claudia Fernández. Finalidad: enviarte la guía y algunos emails. Tus datos se guardan en Kit y no se ceden. Acceso, rectificación o borrado: hola@klauvara.com. <a href="privacidad.html">Más información</a>.</p>
+              <p class="form__legal">Responsable: Claudia Fernández. Finalidad: darte acceso a la guía y avisarte de novedades importantes de Klauvara. Tus datos se guardan en Kit y no se ceden. Acceso, rectificación o borrado: hola@klauvara.com. <a href="privacidad.html">Más información</a>.</p>
             </form>
+            <div class="news__done" hidden>
+              <a class="btn btn--light" href="guia-klauvara-10b25e52.pdf" download="klauvara-lo-que-no-cuento.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg> Descargar la guía</a>
+              <p class="news__note">Ya es tuya. Puedes descargarla cuando quieras desde aquí.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -687,14 +700,12 @@ body.modal-open { overflow: hidden; }
       <div class="modal__seal" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="30" height="30"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg>
       </div>
-      <p class="modal__eyebrow">Ya está en camino</p>
-      <h3 id="modal-t">¡Hecho<span class="modal__name"></span>!</h3>
-      <p class="modal__text">Te acabo de enviar <em>lo que no cuento en los vídeos</em> a tu email.</p>
-      <div class="modal__tip">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 6.5h18v11H3zM3 7l9 6.5L21 7"/></svg>
-        <span>¿No lo ves en unos minutos? Mira en <b>spam</b> o en <b>Promociones</b>.</span>
-      </div>
-      <button class="btn btn--dark" type="button" data-close>Perfecto</button>
+      <p class="modal__eyebrow">Desbloqueada</p>
+      <h3 id="modal-t">Tu guía <em>ya es tuya.</em></h3>
+      <p class="modal__text"><em>Lo que no cuento en los vídeos</em>: 13 páginas con capturas reales.</p>
+      <a class="btn btn--dark" href="guia-klauvara-10b25e52.pdf" download="klauvara-lo-que-no-cuento.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg> Descargar la guía</a>
+      <p class="modal__tip modal__tip--plain">Solo te escribiré cuando haya algo importante. Nada de spam.</p>
+      <button class="modal__close" type="button" data-close>Cerrar</button>
       <p class="modal__k">k.</p>
     </div>
   </div>
@@ -782,8 +793,7 @@ const form = document.getElementById('form-guia');
 const modal = document.getElementById('modal');
 const espera = ms => new Promise(r => setTimeout(r, ms));
 
-function abrirModal(nombre) {
-  modal.querySelector('.modal__name').textContent = nombre ? `, ${nombre}` : '';
+function abrirModal() {
   modal.hidden = false;
   document.body.classList.add('modal-open');
   requestAnimationFrame(() => modal.classList.add('is-open'));
@@ -801,6 +811,10 @@ if (form) {
   const button = form.querySelector('button[type=submit]');
   const textoBoton = button.textContent;
   check.querySelector('input').addEventListener('change', () => { check.classList.remove('check--error'); msg.textContent = ''; });
+  const listo = document.querySelector('.news__done');
+  const desbloquear = () => { form.hidden = true; listo.hidden = false; };
+  // quien ya la desbloqueó en este navegador ve directamente el botón de descarga
+  try { if (localStorage.getItem('klv-guia') === '1') desbloquear(); } catch (err) {}
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
@@ -829,9 +843,11 @@ if (form) {
     if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'guia-enviada', title: 'Formulario de la guía enviado', event: true });
 
     form.reset();
-    button.textContent = 'Enviado ✓';
-    setTimeout(() => { button.disabled = false; button.textContent = textoBoton; }, 4000);
-    abrirModal(nombre.split(' ')[0]);
+    button.disabled = false;
+    button.textContent = textoBoton;
+    try { localStorage.setItem('klv-guia', '1'); } catch (err) {}
+    desbloquear();
+    abrirModal();
   });
 }
 
