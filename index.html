@@ -161,6 +161,16 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .hero__circle { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 32% 28%, #C9A787 0%, var(--tan) 48%, var(--tan-deep) 100%); box-shadow: 0 40px 120px -30px rgba(173, 134, 99, .55); }
 .hero__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: 50% 100%; clip-path: circle(50% at 50% 50%); }
 
+/* ---------- barra de credibilidad ---------- */
+.proof { background: var(--night); color: var(--paper); border-top: 1px solid rgba(251, 248, 244, .1); }
+.proof__list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding-top: 26px; padding-bottom: 26px; }
+.proof__list li { text-align: center; padding: 0 14px; }
+.proof__list li + li { border-left: 1px solid rgba(251, 248, 244, .12); }
+.proof__list b { display: inline-flex; align-items: center; gap: 8px; font-size: clamp(20px, 2vw, 28px); font-weight: 600; letter-spacing: -.03em; line-height: 1.15; }
+.proof__list li:last-child b { font-size: clamp(16px, 1.4vw, 19px); letter-spacing: -.01em; min-height: 1.6em; }
+.proof__list img { width: 26px; height: 26px; border-radius: 7px; }
+.proof__list span { display: block; margin-top: 4px; font-size: 13px; color: #B5A799; }
+
 /* ---------- la guía (tarjeta de suscripción) ---------- */
 /* páginas reales de la guía, pixeladas y con candado */
 /* brillo que recorre las páginas, como contenido sellado */
@@ -192,6 +202,9 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .news__lock { position: absolute; z-index: 4; right: 6%; bottom: 14%; display: inline-flex; align-items: center; gap: 6px; background: var(--paper); color: var(--ink); font-size: 12.5px; font-weight: 600; padding: 8px 13px; border-radius: 999px; transform: rotate(4deg); box-shadow: 0 14px 26px -12px rgba(0, 0, 0, .6); }
 .news__title { font-size: clamp(28px, 2.6vw, 40px); line-height: 1.08; letter-spacing: -.03em; font-weight: 600; }
 .news__text { margin-top: 12px; color: #CFC2B5; font-size: 16.5px; max-width: 30em; }
+.news__list { display: grid; gap: 8px; margin-top: 16px; }
+.news__list li { position: relative; padding-left: 26px; color: #E3D7CB; font-size: 15.5px; line-height: 1.45; }
+.news__list li::before { content: ""; position: absolute; left: 4px; top: .5em; width: 8px; height: 8px; border-radius: 50%; background: var(--tan); }
 .news__form { margin-top: 22px; gap: 10px; max-width: 520px; }
 .news__row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
 .news__row .btn { grid-column: 1 / -1; width: 100%; white-space: nowrap; }
@@ -240,6 +253,11 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .stats b { display: block; font-size: clamp(17px, 1.6vw, 21px); font-weight: 600; letter-spacing: -.02em; line-height: 1.25; }
 .stats span { display: block; margin-top: 6px; font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--tan-light); }
 .center-head { text-align: center; }
+.step { display: flex; align-items: center; justify-content: space-between; gap: 20px 40px; flex-wrap: wrap; }
+.step .p { margin-top: 10px; }
+.step__title { font-size: clamp(26px, 2.8vw, 38px); line-height: 1.1; letter-spacing: -.03em; font-weight: 600; }
+.offer .p b { color: var(--ink); font-weight: 600; }
+.exp { margin-top: 18px; }
 .trust { display: flex; align-items: center; gap: 12px; margin-top: 22px; font-size: 13px; color: #CFC2B5; }
 .trust img { width: 36px; height: 36px; border-radius: 10px; }
 .trust strong { color: var(--paper); }
@@ -300,7 +318,11 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .quote__text { font-family: var(--serif); font-size: clamp(26px, 3.4vw, 46px); line-height: 1.22; max-width: 17em; margin: 0 auto; }
 .quote__text .w { opacity: .35; transition: opacity .4s; }
 .quote__text .w.on { opacity: 1; }
-.final .actions { justify-content: center; margin-top: 34px; }
+.final .actions { justify-content: center; margin-top: 30px; }
+.final .h2 em { color: #FFF4E6; }
+.final__p { margin-top: 16px; font-size: clamp(16px, 1.3vw, 18px); color: #FFF4E6; }
+.final .copy { text-decoration: none; display: inline-flex; align-items: center; }
+.final__mail { margin-top: 22px; font-size: 14px; color: #FFF4E6; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 12px; }
 .copy { font: inherit; font-size: 14px; font-weight: 600; background: none; color: var(--paper); border: 1.5px solid rgba(251, 248, 244, .6); padding: 13px 22px; border-radius: 999px; cursor: pointer; transition: background .2s, color .2s; }
 .copy:hover { background: var(--paper); color: var(--ink); }
 .mailnote { margin-top: 18px; font-size: 14px; color: #CFC2B5; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
@@ -386,6 +408,8 @@ body.modal-open { overflow: hidden; }
   .chapter__img--stack { margin-bottom: 18px; }
   .rail { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
   .areas { grid-template-columns: 1fr 1fr; }
+  .proof__list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; }
+  .proof__list li:nth-child(3) { border-left: 0; }
 }
 
 /* ---------- móvil ---------- */
@@ -405,7 +429,10 @@ body.modal-open { overflow: hidden; }
   .metrics span { font-size: 11px; }
   .locked-pill { font-size: 12px; padding: 8px 13px; }
 
-  .actions .btn { flex: 1 1 100%; }
+  .actions .btn, .final .actions .copy { flex: 1 1 100%; justify-content: center; }
+  .step .btn { flex: 1 1 100%; }
+  .proof__list li { padding: 0 8px; }
+  .proof__list span { font-size: 12px; }
   .tool__card { padding: 20px; }
   .tool__go { display: none; }
   .areas { grid-template-columns: 1fr; gap: 12px; }
@@ -455,6 +482,16 @@ body.modal-open { overflow: hidden; }
       </div>
     </section>
 
+    <!-- CREDIBILIDAD -->
+    <div class="proof" aria-label="Resultados">
+      <ul class="wrap proof__list">
+        <li><b>+1M</b><span>visualizaciones en YouTube</span></li>
+        <li><b>6.500</b><span>suscriptores en menos de un año</span></li>
+        <li><b>14M</b><span>visualizaciones en TikTok</span></li>
+        <li><b><img src="logo-higgsfield.webp" alt="" width="160" height="160">Higgsfield AI</b><span>ha trabajado conmigo</span></li>
+      </ul>
+    </div>
+
     <!-- LA GUÍA -->
     <section class="block" id="historia">
       <div class="wrap">
@@ -468,7 +505,12 @@ body.modal-open { overflow: hidden; }
           </figure>
           <div>
             <h2 class="news__title">Lo que no cuento<br><em>en los vídeos.</em></h2>
-            <p class="news__text">Los canales que tuve antes de Klauvara, lo que ganó de verdad y lo que haría distinto. Déjame tu nombre y tu email y se desbloquea al momento.</p>
+            <ul class="news__list">
+              <li>Los canales que tuve y cuánto gané de verdad.</li>
+              <li>Los errores que me costaron más tiempo.</li>
+              <li>Lo que haría distinto si empezara hoy.</li>
+            </ul>
+            <p class="news__text">Déjame tu nombre y tu email y se desbloquea al momento.</p>
             <form class="form news__form" id="form-guia" novalidate>
               <div class="news__row">
                 <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="given-name" required maxlength="60" aria-label="Tu nombre">
@@ -517,11 +559,20 @@ body.modal-open { overflow: hidden; }
         </div>
         <div class="offers">
 
+          <article class="card step reveal" id="gratis">
+            <div>
+              <span class="kicker">01 · Gratis</span>
+              <h3 class="step__title">Empieza <em>por aquí.</em></h3>
+              <p class="p">Cada semana analizo en YouTube por qué algunas cosas nos atrapan.</p>
+            </div>
+            <a class="btn btn--dark" href="https://www.youtube.com/@klauvara" target="_blank" rel="noopener">Ver el canal ↗</a>
+          </article>
+
           <article class="card offer reveal" id="emprendedores">
             <div>
-              <span class="kicker">Para emprendedores</span>
+              <span class="kicker">02 · Fundadores #1</span>
               <h3 class="h3">Haces algo bueno<br><em>y nadie lo ve.</em></h3>
-              <p class="p">Próximamente acompañaré a unas pocas personas a convertir YouTube en el escaparate de su negocio.</p>
+              <p class="p">Próximamente abro <b>Fundadores #1</b>: acompañaré a unas pocas personas a convertir YouTube en el escaparate de su negocio.</p>
               <div class="actions">
                 <a class="btn btn--dark" href="https://forms.gle/wpjkUhy8nPCwjAKq7" target="_blank" rel="noopener">Cuéntame tu caso ↗</a>
                 <span class="note">2 minutos · sin compromiso</span>
@@ -536,7 +587,7 @@ body.modal-open { overflow: hidden; }
 
           <article class="card card--night offer reveal" id="marcas">
             <div>
-              <span class="kicker">Para marcas</span>
+              <span class="kicker">03 · Para marcas</span>
               <h3 class="h3">¿Eres una marca?<br><em>Hablemos.</em></h3>
               <p class="p">Integro tu marca en mis vídeos, con el mismo cuidado que el resto del contenido.</p>
               <div class="trust"><img src="logo-higgsfield.webp" alt="" loading="lazy" width="160" height="160"><span>Ya han trabajado conmigo: <strong>Higgsfield AI</strong></span></div>
@@ -594,7 +645,7 @@ body.modal-open { overflow: hidden; }
             <figure class="chapter__img chapter__img--stats"><img src="historia-4.webp" alt="Miniatura del primer vídeo de Claudia a cámara" loading="lazy" decoding="async" width="1000" height="554">
               <ul class="metrics">
                 <li><b>716.908</b><span>visualizaciones</span></li>
-                <li><b>17.300 h</b><span>vistas</span></li>
+                <li><b>17.300 h</b><span>de visualización</span></li>
                 <li><b>+3.500</b><span>suscriptores</span></li>
               </ul>
               <figcaption>Datos de YouTube Studio</figcaption>
@@ -606,6 +657,18 @@ body.modal-open { overflow: hidden; }
             </div>
           </li>
         </ol>
+        <div class="card offer exp reveal">
+          <div>
+            <span class="kicker">Mi experiencia</span>
+            <h3 class="h3">Lo que he hecho<br><em>hasta hoy.</em></h3>
+          </div>
+          <ul class="ticks">
+            <li><b>Canales sin cara</b> con más de 20.000 suscriptores.</li>
+            <li><b>14 millones</b> de visualizaciones en TikTok.</li>
+            <li><b>Klauvara:</b> más de 1 millón de visualizaciones en su primer año.</li>
+            <li><b>Formación en Marketing y Publicidad</b> y experiencia en una agencia de marketing digital.</li>
+          </ul>
+        </div>
         <div class="card bridge reveal">
           <h2 class="h3">Si me pasó a mí,<br><em>le puede pasar a tu negocio.</em></h2>
           <div class="actions"><a class="btn btn--light" href="#ayuda">Quiero lo mismo</a></div>
@@ -656,11 +719,13 @@ body.modal-open { overflow: hidden; }
     <section class="block" id="contacto">
       <div class="wrap">
         <div class="card final reveal">
-          <p class="quote__text" data-words>“no tengo todas las respuestas, las estoy buscando”</p>
+          <h2 class="h2">¿Haces algo bueno<br><em>y nadie lo ve?</em></h2>
+          <p class="final__p">Cuéntame tu caso. Próximamente abro Fundadores #1.</p>
           <div class="actions">
-            <a class="btn btn--light" href="mailto:hola@klauvara.com">hola@klauvara.com</a>
-            <button class="copy" data-copy="hola@klauvara.com">Copiar email</button>
+            <a class="btn btn--light" href="https://forms.gle/wpjkUhy8nPCwjAKq7" target="_blank" rel="noopener">Cuéntame tu caso ↗</a>
+            <a class="copy" href="#historia">Descargar la guía</a>
           </div>
+          <p class="final__mail">¿Otra cosa? Escríbeme a <strong>hola@klauvara.com</strong> <button class="copy copy--sm" type="button" data-copy="hola@klauvara.com">Copiar</button></p>
         </div>
       </div>
     </section>
