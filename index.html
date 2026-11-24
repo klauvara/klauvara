@@ -285,9 +285,6 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .bridge .h3 { max-width: 16em; margin: 0 auto; }
 .bridge .h3 em { color: #FFF4E6; }
 .bridge .actions { justify-content: center; }
-.mini { display: flex; align-items: center; justify-content: space-between; gap: 20px 40px; flex-wrap: wrap; }
-.mini .kicker { margin-bottom: 10px; }
-.mini__title { font-size: clamp(22px, 2.2vw, 30px); line-height: 1.15; letter-spacing: -.025em; font-weight: 600; max-width: 22em; }
 
 /* ---------- herramienta ---------- */
 .tool__card { display: flex; align-items: center; gap: 20px; max-width: 680px; margin: 0 auto; text-decoration: none; background: var(--sand); border-radius: 22px; padding: 22px 26px; transition: transform .3s var(--ease), box-shadow .3s; }
@@ -309,7 +306,6 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .mailnote { margin-top: 18px; font-size: 14px; color: #CFC2B5; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
 .mailnote strong { color: var(--paper); font-weight: 600; }
 .copy--sm { padding: 6px 14px; font-size: 12.5px; }
-.final__b2b { margin-top: 22px; font-size: 14px; color: #FFF4E6; }
 
 /* ---------- pie ---------- */
 .foot { background: var(--night); color: #9E9083; padding: 54px 0 34px; font-size: 13px; text-align: center; }
@@ -320,6 +316,8 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .foot__legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin-top: 30px; padding-top: 24px; border-top: 1px solid rgba(251, 248, 244, .1); }
 .foot__legal a { color: #C9BCAF; text-decoration: none; }
 .foot__legal a:hover { color: var(--paper); text-decoration: underline; }
+.foot__b2b { margin-top: 18px; color: #C9BCAF; }
+.foot__b2b a { color: var(--paper); }
 .foot__copy { margin-top: 14px; }
 .toast { position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 20px); background: var(--ink); color: var(--paper); padding: 12px 20px; border-radius: 999px; font-size: 14px; opacity: 0; pointer-events: none; transition: .25s; z-index: 95; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
@@ -407,7 +405,6 @@ body.modal-open { overflow: hidden; }
   .metrics span { font-size: 11px; }
   .locked-pill { font-size: 12px; padding: 8px 13px; }
 
-  .mini .btn { flex: 1 1 100%; }
   .actions .btn { flex: 1 1 100%; }
   .tool__card { padding: 20px; }
   .tool__go { display: none; }
@@ -445,7 +442,7 @@ body.modal-open { overflow: hidden; }
         <div class="hero__text">
           <p class="hero__hi">Hola, soy Claudia</p>
           <h1 class="hero__title">Antes, nadie me veía.<br>Hoy ayudo a negocios a<br><span class="hl"><em>dejar de ser invisibles.</em></span></h1>
-          <p class="hero__lead">Cuento en YouTube cómo funcionan los negocios y las marcas por dentro. Vídeos nuevos cada semana.</p>
+          <p class="hero__lead">Cuento por qué algunas cosas nos atrapan y otras no, y cómo hacer que lo tuyo se vea. Vídeos nuevos cada semana.</p>
           <div class="hero__actions">
             <a class="btn btn--light" href="https://www.youtube.com/@klauvara" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"/></svg>Ver en YouTube</a>
             <a class="btn btn--line" href="#ayuda">Trabaja conmigo</a>
@@ -500,7 +497,7 @@ body.modal-open { overflow: hidden; }
       <div class="wrap">
         <div class="center-head reveal">
           <span class="kicker">Lo que cuento en el canal</span>
-          <h2 class="h2">Entender cómo funcionan los negocios<br><em>te cambia la forma de mirar.</em></h2>
+          <h2 class="h2">Por qué <em>nos atrapan.</em></h2>
         </div>
         <ul class="areas">
           <li class="area reveal"><span class="area__icon"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M4 8h16v11H4zM9 8V6a3 3 0 0 1 6 0v2M4 13h16"/></svg></span><h3>Tu negocio</h3><p>Por qué unos funcionan y otros no, con casos reales.</p></li>
@@ -557,14 +554,6 @@ body.modal-open { overflow: hidden; }
             </ul>
           </article>
 
-          <article class="card mini reveal" id="empresas">
-            <div>
-              <span class="kicker">Para empresas</span>
-              <h3 class="mini__title">YouTube y estrategia de contenido <em>para equipos.</em></h3>
-            </div>
-            <a class="btn btn--dark" href="https://www.linkedin.com/in/claudia-fern%C3%A1ndez-508153402" target="_blank" rel="noopener">Escríbeme en LinkedIn ↗</a>
-          </article>
-
         </div>
       </div>
     </section>
@@ -590,7 +579,7 @@ body.modal-open { overflow: hidden; }
             <div class="chapter__body">
               <span class="chapter__n">02 · Invisible</span>
               <h3>Lo intenté<br><em>sin enseñar la cara.</em></h3>
-              <p>Canal tras canal. Trabajaba muchísimo, pero nadie sabía quién estaba detrás.</p>
+              <p>Era la chica callada que temblaba en las presentaciones. Así que lo intenté canal tras canal, trabajando muchísimo, sin que nadie supiera quién estaba detrás.</p>
             </div>
           </li>
           <li class="chapter reveal">
@@ -672,7 +661,6 @@ body.modal-open { overflow: hidden; }
             <a class="btn btn--light" href="mailto:hola@klauvara.com">hola@klauvara.com</a>
             <button class="copy" data-copy="hola@klauvara.com">Copiar email</button>
           </div>
-          <p class="final__b2b">¿Empresa? Escríbeme por <a href="https://www.linkedin.com/in/claudia-fern%C3%A1ndez-508153402" target="_blank" rel="noopener">LinkedIn</a>.</p>
         </div>
       </div>
     </section>
@@ -693,6 +681,7 @@ body.modal-open { overflow: hidden; }
         <a href="cookies.html">Cookies</a>
         <a href="terminos.html">Términos</a>
       </nav>
+      <p class="foot__b2b">¿Eres una empresa? Escríbeme por <a href="https://www.linkedin.com/in/claudia-fern%C3%A1ndez-508153402" target="_blank" rel="noopener">LinkedIn</a>.</p>
       <p class="foot__copy">© <span id="year"></span> Claudia Fernández · Klauvara</p>
     </div>
   </footer>
