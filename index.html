@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <script>if (window.top !== window.self) { try { window.top.location = window.self.location; } catch (e) { document.documentElement.style.display = 'none'; } }</script>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qB01JqjT+mB6JKcHXYG+68RppGRiMydDMi58H8fkYqk=' 'sha256-XA1yFkYQ7z+WZf+4bv34iX/dydXBSA/blJRunnFp7s4=' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://klauvara.goatcounter.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://klauvara.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qB01JqjT+mB6JKcHXYG+68RppGRiMydDMi58H8fkYqk=' 'sha256-RnztcCsVgb3AFvlObEXxyaabx1PYxHrmjBc0xyHt+bA=' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://klauvara.goatcounter.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://klauvara.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Claudia Fernández (Klauvara) · Negocios, marcas e internet en YouTube</title>
@@ -268,37 +268,34 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .ticks li { position: relative; padding-left: 38px; font-size: 16.5px; line-height: 1.5; color: var(--ink-soft); }
 .ticks li::before { content: ""; position: absolute; left: 0; top: 1px; width: 24px; height: 24px; border-radius: 50%; background: var(--tan) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23FBF8F4' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round' d='M6.5 12.5l3.5 3.5 7.5-8'/%3E%3C/svg%3E") center / 16px no-repeat; }
 .ticks b { color: var(--ink); font-weight: 600; }
-.chapters { display: grid; gap: 18px; margin: 44px 0 0; padding: 0; list-style: none; }
-.chapter { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; background: var(--sand); border-radius: var(--r); padding: clamp(16px, 2.2vw, 24px); }
-.chapter > * { min-width: 0; }
-.chapter:nth-child(even) .chapter__img { order: 2; }
-.chapter__img { margin: 0; border-radius: 20px; overflow: hidden; }
-.chapter__img img { width: 100%; height: auto; }
-.chapter__img--contain { background: #E4D7C8; padding: 7% 5%; }
-.chapter__body { padding: clamp(6px, 2vw, 28px); }
-.chapter__n { display: block; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--tan-deep); }
-.chapter h3 { margin-top: 14px; font-size: clamp(28px, 3vw, 42px); line-height: 1.08; letter-spacing: -.035em; font-weight: 600; }
-.chapter p { margin-top: 14px; font-size: clamp(16px, 1.3vw, 18px); color: var(--ink-soft); max-width: 26em; }
-.chapter--after { background: var(--night); color: var(--paper); }
 /* 02: canales pixelados con candado */
-.chapter__img--locked { position: relative; }
-.chapter__img--locked img { border-radius: 10px; }
 .locked-pill { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; background: rgba(23, 17, 14, .9); color: var(--paper); font-size: 13px; font-weight: 600; text-decoration: none; padding: 10px 16px; border-radius: 999px; box-shadow: 0 16px 30px -14px rgba(0, 0, 0, .6); transition: transform .3s var(--ease), background .3s; }
 .locked-pill:hover { transform: translate(-50%, -50%) scale(1.05); background: var(--ink); }
-/* 03: foto + aviso de partner encima */
-.chapter__img--stack { position: relative; overflow: visible; }
-.chapter__img--stack > img:first-child { border-radius: 20px; }
-.chapter__img .sticker { position: absolute; right: -3%; bottom: -9%; width: 34%; height: auto; transform: rotate(5deg); border-radius: 14px; box-shadow: 0 24px 44px -18px rgba(31, 24, 20, .55); }
-/* 04: miniatura + métricas */
-.chapter__img--stats { overflow: visible; }
-.chapter__img--stats img { border-radius: 16px; }
-.metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0 0; padding: 0; list-style: none; }
-.metrics li { background: rgba(251, 248, 244, .07); border: 1px solid rgba(251, 248, 244, .1); border-radius: 12px; padding: 12px 14px; }
-.metrics b { display: block; font-size: clamp(18px, 1.7vw, 24px); font-weight: 600; letter-spacing: -.02em; color: var(--paper); }
-.metrics span { display: block; margin-top: 2px; font-size: 12px; color: #B5A799; }
-.chapter__img--stats figcaption { margin-top: 8px; font-size: 11px; color: #8F8276; text-align: right; }
-.chapter--after .chapter__n { color: var(--tan-light); }
-.chapter--after p { color: #CFC2B5; }
+/* historia: línea de tiempo que se va llenando al bajar */
+.story { position: relative; display: grid; gap: 12px; max-width: 1000px; margin: 44px auto 0; padding: 0 0 0 66px; list-style: none; }
+.story::before, .story::after { content: ""; position: absolute; left: 21px; top: 30px; bottom: 30px; width: 2px; border-radius: 2px; }
+.story::before { background: rgba(124, 94, 70, .16); }
+.story::after { background: linear-gradient(var(--tan-light), var(--tan), var(--tan-deep)); transform-origin: 50% 0; transform: scaleY(var(--tl, 0)); }
+.story__step { position: relative; }
+.story__dot { position: absolute; z-index: 1; left: -66px; top: 50%; width: 44px; height: 44px; margin-top: -22px; display: grid; place-items: center; border-radius: 50%; background: var(--paper); border: 2px solid rgba(124, 94, 70, .22); font-size: 13px; font-weight: 600; color: var(--ink-soft); transition: background .5s, color .5s, border-color .5s, box-shadow .5s, transform .5s var(--ease); }
+.story__step.lit .story__dot { background: var(--tan); border-color: var(--tan); color: var(--paper); transform: scale(1.06); box-shadow: 0 0 0 7px rgba(173, 134, 99, .16); }
+.story__card { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: clamp(20px, 3vw, 36px); align-items: center; background: var(--sand); border-radius: 26px; padding: 14px; transition: transform .45s var(--ease), box-shadow .45s var(--ease); }
+.story__card:hover { transform: translateY(-3px); box-shadow: 0 30px 50px -36px rgba(60, 35, 20, .5); }
+.story__img { position: relative; margin: 0; aspect-ratio: 1; border-radius: 18px; overflow: hidden; background: #E4D7C8; }
+.story__img > img:first-child { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.story__card:hover .story__img > img:first-child { transform: scale(1.04); }
+.story__img--pixel > img:first-child { transform: scale(1.4); filter: saturate(.85); }
+.story__card:hover .story__img--pixel > img:first-child { transform: scale(1.46); }
+.story__img .locked-pill { font-size: 11.5px; padding: 7px 12px; gap: 6px; }
+.story__img .sticker { position: absolute; right: 5%; bottom: 6%; width: 32%; height: auto; transform: rotate(5deg); border-radius: 10px; box-shadow: 0 18px 30px -14px rgba(31, 24, 20, .6); }
+.story__body { padding: 6px 20px 6px 0; }
+.story__when { display: block; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--tan-deep); }
+.story__body h3 { margin-top: 8px; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.1; letter-spacing: -.03em; font-weight: 600; }
+.story__body p { margin-top: 8px; font-size: 15.5px; line-height: 1.55; color: var(--ink-soft); max-width: 32em; }
+.story__step--now .story__card { background: var(--night); color: var(--paper); }
+.story__step--now .story__when { color: var(--tan-light); }
+.story__step--now .story__body p { color: #CFC2B5; }
+.bridge__p { margin-top: 12px; font-size: clamp(16px, 1.3vw, 18px); color: #FFF4E6; }
 .bridge { margin-top: 18px; background: var(--tan); color: var(--paper); text-align: center; }
 .bridge .h3 { max-width: 16em; margin: 0 auto; }
 .bridge .h3 em { color: #FFF4E6; }
@@ -390,8 +387,7 @@ body.modal-open { overflow: hidden; }
 @keyframes pop { 40% { transform: scale(1.12); color: #E2C4A5; } }
 /* luz que sigue al ratón en las tarjetas */
 .spot { position: relative; isolation: isolate; }
-.spot::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .6), transparent 60%); opacity: 0; transition: opacity .4s; pointer-events: none; }
-.card--night.spot::before, .chapter--after.spot::before { background: radial-gradient(460px circle at var(--mx, 50%) var(--my, 50%), rgba(214, 178, 140, .16), transparent 60%); }
+.spot::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: radial-gradient(460px circle at var(--mx, 50%) var(--my, 50%), rgba(214, 178, 140, .16), transparent 60%); opacity: 0; transition: opacity .4s; pointer-events: none; }
 .spot:hover::before { opacity: 1; }
 /* botones: brillo que cruza y respuesta al pulsar */
 .btn { position: relative; overflow: hidden; isolation: isolate; }
@@ -435,7 +431,7 @@ body.modal-open { overflow: hidden; }
 .js .reveal.in { opacity: 1; transform: none; filter: none; }
 .js .center-head.reveal .h2 { opacity: 0; transform: translateY(18px); transition: opacity .9s .14s var(--ease), transform .9s .14s var(--ease); }
 .js .center-head.reveal.in .h2 { opacity: 1; transform: none; }
-.js .offers .reveal:nth-child(2), .js .chapters .reveal:nth-child(even) { transition-delay: .06s; }
+.js .offers .reveal:nth-child(2) { transition-delay: .06s; }
 .js .hero__text > * { animation: rise .9s var(--ease) both; }
 .js .hero__title { animation-delay: .08s; }
 .js .hero__lead { animation-delay: .3s; }
@@ -460,14 +456,11 @@ body.modal-open { overflow: hidden; }
   .hero__lead { margin-left: auto; margin-right: auto; }
   .hero__actions { justify-content: center; }
   .hero__media { width: min(78%, 340px); margin: 24px auto 64px; }
-  .offer, .chapter, .news { grid-template-columns: 1fr; }
+  .offer, .news { grid-template-columns: 1fr; }
   .news { text-align: center; }
   .news__text, .news__form { margin-left: auto; margin-right: auto; }
   .news__art { max-width: 240px; }
   .news__form .check, .news__form .form__legal { text-align: left; }
-  .chapter:nth-child(even) .chapter__img { order: 0; }
-  .chapter__img .sticker { width: 38%; right: 2%; bottom: -6%; }
-  .chapter__img--stack { margin-bottom: 18px; }
   .rail { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
   .areas { grid-template-columns: 1fr 1fr; }
   .proof__list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; }
@@ -486,15 +479,24 @@ body.modal-open { overflow: hidden; }
   .hl { white-space: normal; }
   .hero__actions .btn { flex: 1 1 100%; }
   .card { border-radius: 24px; }
-  .metrics li { padding: 10px; }
-  .metrics b { font-size: 16px; }
-  .metrics span { font-size: 11px; }
   .locked-pill { font-size: 12px; padding: 8px 13px; }
 
   .actions .btn, .final .actions .copy { flex: 1 1 100%; justify-content: center; }
   .step .btn { flex: 1 1 100%; }
   .proof__list li { padding: 0 8px; }
   .proof__list span { font-size: 12px; }
+  .story { padding-left: 42px; gap: 14px; }
+  .story::before, .story::after { left: 14px; top: 24px; bottom: 24px; }
+  .story__dot { left: -42px; top: 18px; margin-top: 0; width: 30px; height: 30px; font-size: 11px; }
+  .story__card { grid-template-columns: 104px minmax(0, 1fr); gap: 14px; padding: 10px; border-radius: 20px; align-items: start; }
+  .story__img { border-radius: 12px; }
+  .story__body { padding: 2px 4px 4px 0; }
+  .story__when { font-size: 10.5px; letter-spacing: .16em; }
+  .story__body h3 { margin-top: 5px; font-size: 19px; }
+  .story__body p { margin-top: 5px; font-size: 14px; line-height: 1.5; }
+  .story__img .locked-pill { font-size: 9.5px; padding: 5px 8px; gap: 4px; }
+  .story__img .locked-pill svg { width: 10px; height: 10px; }
+  .story__dot { top: 12px; }
   .soon:not(.soon--light) { display: table; margin: 10px 0 0; }
   .tool__card { padding: 20px; }
   .tool__go { display: none; }
@@ -681,45 +683,83 @@ body.modal-open { overflow: hidden; }
           <span class="kicker">Lo que hay detrás de Klauvara</span>
           <h2 class="h2">Detrás de Klauvara<br><em>está Claudia.</em></h2>
         </div>
-        <ol class="chapters">
-          <li class="chapter reveal">
-            <figure class="chapter__img"><img src="historia-1.webp" alt="Claudia de pequeña, disfrazada de pirata" loading="lazy" decoding="async" width="1000" height="800"></figure>
-            <div class="chapter__body">
-              <span class="chapter__n">01 · El sueño</span>
-              <h3>Quería ser <em>youtuber.</em></h3>
-              <p>De pequeña era muy creativa. En el instituto lo escondí para encajar.</p>
-            </div>
+        <ol class="story">
+          <li class="story__step reveal">
+            <span class="story__dot" aria-hidden="true">01</span>
+            <article class="story__card">
+              <figure class="story__img"><img src="historia-pequena.webp" alt="Claudia de pequeña, disfrazada de pirata" loading="lazy" decoding="async" width="900" height="900"></figure>
+              <div class="story__body">
+                <span class="story__when">De pequeña</span>
+                <h3>Quería ser <em>youtuber.</em></h3>
+                <p>Era muy creativa y soñaba con tener un canal. Luego llegó el instituto.</p>
+              </div>
+            </article>
           </li>
-          <li class="chapter reveal">
-            <figure class="chapter__img chapter__img--contain chapter__img--locked"><img src="historia-2.webp" alt="Los canales sin cara de Claudia, pixelados" loading="lazy" decoding="async" width="1200" height="330"><a class="locked-pill" href="#historia"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 1 1 6 0v3H9Z"/></svg> Cuáles eran, en la guía</a></figure>
-            <div class="chapter__body">
-              <span class="chapter__n">02 · Invisible</span>
-              <h3>Lo intenté<br><em>sin enseñar la cara.</em></h3>
-              <p>Era la chica callada que temblaba en las presentaciones. Así que lo intenté canal tras canal, trabajando muchísimo, sin que nadie supiera quién estaba detrás.</p>
-            </div>
+          <li class="story__step reveal">
+            <span class="story__dot" aria-hidden="true">02</span>
+            <article class="story__card">
+              <figure class="story__img"><img src="historia-instituto.webp" alt="Claudia en clase, con la cabeza escondida sobre el pupitre" loading="lazy" decoding="async" width="900" height="900"></figure>
+              <div class="story__body">
+                <span class="story__when">En el instituto</span>
+                <h3>La chica que <em>no se veía.</em></h3>
+                <p>Callada, con tanta ansiedad que hasta coger un bus me costaba. En las presentaciones, temblaba. Era lista, pero no me lo creía.</p>
+              </div>
+            </article>
           </li>
-          <li class="chapter reveal">
-            <figure class="chapter__img chapter__img--stack"><img src="historia-3.webp" alt="Claudia abriendo su primer portátil" loading="lazy" decoding="async" width="1000" height="826"><img class="sticker" src="historia-partner.webp" alt="Aviso de YouTube Studio: ¡Enhorabuena! Ya eres partner de YouTube" loading="lazy" decoding="async" width="398" height="497"></figure>
-            <div class="chapter__body">
-              <span class="chapter__n">03 · El primer canal</span>
-              <h3>Funcionó.<br><em>Y seguía escondida.</em></h3>
-              <p>Con mi primer portátil, el canal empezó a funcionar y llegó el aviso: ya era partner de YouTube. Pero yo seguía sin enseñar la cara.</p>
-            </div>
+          <li class="story__step reveal">
+            <span class="story__dot" aria-hidden="true">03</span>
+            <article class="story__card">
+              <figure class="story__img story__img--pixel"><img src="historia-2.webp" alt="Los canales sin cara de Claudia, pixelados" loading="lazy" decoding="async" width="1200" height="330"><a class="locked-pill" href="#historia"><svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 1 1 6 0v3H9Z"/></svg> En la guía</a></figure>
+              <div class="story__body">
+                <span class="story__when">Los fracasos</span>
+                <h3>Lo intenté <em>sin enseñar la cara.</em></h3>
+                <p>Canal tras canal, editando desde el móvil. Ninguno despegaba. Pero no paré.</p>
+              </div>
+            </article>
           </li>
-          <li class="chapter chapter--after reveal">
-            <figure class="chapter__img chapter__img--stats"><img src="historia-4.webp" alt="Miniatura del primer vídeo de Claudia a cámara" loading="lazy" decoding="async" width="1000" height="554">
-              <ul class="metrics">
-                <li><b>716.908</b><span>visualizaciones</span></li>
-                <li><b>17.300 h</b><span>de visualización</span></li>
-                <li><b>+3.500</b><span>suscriptores</span></li>
-              </ul>
-              <figcaption>Datos de YouTube Studio</figcaption>
-            </figure>
-            <div class="chapter__body">
-              <span class="chapter__n">04 · Hoy</span>
-              <h3>Me atreví.<br><em>Y todo cambió.</em></h3>
-              <p>Mi primer vídeo enseñando la cara pasó de las 700.000 visualizaciones. Y empezaron a llegar oportunidades que nunca imaginé.</p>
-            </div>
+          <li class="story__step reveal">
+            <span class="story__dot" aria-hidden="true">04</span>
+            <article class="story__card">
+              <figure class="story__img"><img src="historia-3.webp" alt="Claudia abriendo la caja de su primer ordenador" loading="lazy" decoding="async" width="1000" height="826"><img class="sticker" src="historia-partner.webp" alt="Aviso de YouTube Studio: ¡Enhorabuena! Ya eres partner de YouTube" loading="lazy" decoding="async" width="398" height="497"></figure>
+              <div class="story__body">
+                <span class="story__when">Mi primer ordenador</span>
+                <h3>Y por fin, <em>funcionó.</em></h3>
+                <p>Me lo regalaron mis padres. Con él y mucha constancia, moneticé mi canal sin cara. Uno de mis canales pasó de 20.000 suscriptores y en TikTok llegué a 14 millones de visualizaciones.</p>
+              </div>
+            </article>
+          </li>
+          <li class="story__step reveal">
+            <span class="story__dot" aria-hidden="true">05</span>
+            <article class="story__card">
+              <figure class="story__img"><img src="historia-mirada.webp" alt="Claudia en el autobús, pensativa" loading="lazy" decoding="async" width="900" height="900"></figure>
+              <div class="story__body">
+                <span class="story__when">Lo que descubrí</span>
+                <h3>Por qué algunas cosas <em>nos atrapan.</em></h3>
+                <p>Y algo injusto: hay gente buenísima, con algo valioso, que nadie ve. Yo sabía hacer que las cosas se vieran. Menos yo.</p>
+              </div>
+            </article>
+          </li>
+          <li class="story__step reveal">
+            <span class="story__dot" aria-hidden="true">06</span>
+            <article class="story__card">
+              <figure class="story__img"><img src="historia-camara.webp" alt="El primer vídeo de Claudia hablando a cámara, en su portátil" loading="lazy" decoding="async" width="900" height="900"></figure>
+              <div class="story__body">
+                <span class="story__when">2026</span>
+                <h3>Di <em>la cara.</em></h3>
+                <p>Abrí Klauvara y empecé a hablar a cámara, temblando un poco. En menos de un año, más de un millón de visualizaciones.</p>
+              </div>
+            </article>
+          </li>
+          <li class="story__step story__step--now reveal">
+            <span class="story__dot" aria-hidden="true">07</span>
+            <article class="story__card">
+              <figure class="story__img"><img src="historia-equipo.webp" alt="Micrófono y cámara nuevos de Claudia, aún en sus cajas" loading="lazy" decoding="async" width="900" height="900"></figure>
+              <div class="story__body">
+                <span class="story__when">Hoy</span>
+                <h3>Esto acaba <em>de empezar.</em></h3>
+                <p>Equipo nuevo, vídeos nuevos cada semana y Fundadores #1, próximamente.</p>
+              </div>
+            </article>
           </li>
         </ol>
         <div class="card offer exp reveal">
@@ -735,8 +775,9 @@ body.modal-open { overflow: hidden; }
           </ul>
         </div>
         <div class="card bridge reveal">
-          <h2 class="h3">Si me pasó a mí,<br><em>le puede pasar a tu negocio.</em></h2>
-          <div class="actions"><a class="btn btn--light" href="#ayuda">Quiero lo mismo</a></div>
+          <h2 class="h3">Si haces algo bueno y nadie lo ve,<br><em>sé cómo es. Porque fui yo.</em></h2>
+          <p class="bridge__p">Y no tiene por qué seguir siendo así.</p>
+          <div class="actions"><a class="btn btn--light" href="#ayuda">Quiero que se vea</a></div>
         </div>
       </div>
     </section>
@@ -880,6 +921,8 @@ if (frase) {
 
 // Todo lo que depende del scroll, en un solo paso por fotograma
 const cabecera = document.querySelector('.top');
+const historia = document.querySelector('.story');
+const pasos = document.querySelectorAll('.story__step');
 let pendiente = false;
 function alScroll() {
   pendiente = false;
@@ -888,6 +931,11 @@ function alScroll() {
   cabecera.classList.toggle('is-solid', y > 40);
   const total = document.documentElement.scrollHeight - vh;
   cabecera.style.setProperty('--p', total > 0 ? Math.min(1, y / total).toFixed(4) : 0);
+  if (historia) {
+    const r = historia.getBoundingClientRect(), meta = vh * 0.6;
+    historia.style.setProperty('--tl', reduce ? 1 : Math.min(1, Math.max(0, (meta - r.top) / r.height)).toFixed(4));
+    pasos.forEach(s => { const b = s.getBoundingClientRect(); s.classList.toggle('lit', reduce || b.top + b.height / 2 < meta); });
+  }
   if (reduce) return;
   if (frase) {
     const r = frase.getBoundingClientRect();
@@ -929,7 +977,7 @@ if (!reduce && 'IntersectionObserver' in window) {
 
 // Solo con ratón: luz que sigue al cursor, botones magnéticos y guía en 3D
 if (fino && !reduce) {
-  document.querySelectorAll('.card:not(.hot), .area, .chapter, .tool__card').forEach(el => {
+  document.querySelectorAll('.card--night, .story__step--now .story__card').forEach(el => {
     el.classList.add('spot');
     el.addEventListener('pointermove', e => {
       const r = el.getBoundingClientRect();
