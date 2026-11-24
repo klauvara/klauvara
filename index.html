@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <script>if (window.top !== window.self) { try { window.top.location = window.self.location; } catch (e) { document.documentElement.style.display = 'none'; } }</script>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qB01JqjT+mB6JKcHXYG+68RppGRiMydDMi58H8fkYqk=' 'sha256-iMA9ANqcUFNiVoiMjnWvxk3o/Yt6QMe22K6a4fXTZBU=' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://klauvara.goatcounter.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://klauvara.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qB01JqjT+mB6JKcHXYG+68RppGRiMydDMi58H8fkYqk=' 'sha256-XA1yFkYQ7z+WZf+4bv34iX/dydXBSA/blJRunnFp7s4=' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://klauvara.goatcounter.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://klauvara.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Claudia Fernández (Klauvara) · Negocios, marcas e internet en YouTube</title>
@@ -372,9 +372,70 @@ body.modal-open { overflow: hidden; }
 @keyframes seal { from { transform: scale(.4); opacity: 0; } 70% { transform: scale(1.08); } to { transform: scale(1); opacity: 1; } }
 @keyframes tick { to { stroke-dashoffset: 0; } }
 
+/* ---------- efectos premium ---------- */
+/* barra de lectura: cuánto llevas de página */
+.top { position: sticky; }
+.progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: linear-gradient(90deg, var(--tan-deep), var(--tan), #E2C4A5); transform-origin: 0 50%; transform: scaleX(var(--p, 0)); pointer-events: none; }
+/* portada viva: brillo que respira y grano de película */
+.hero::before { content: ""; position: absolute; inset: -20%; background: radial-gradient(520px 420px at 28% 38%, rgba(214, 178, 140, .2), transparent 70%), radial-gradient(420px 360px at 78% 72%, rgba(173, 134, 99, .18), transparent 70%); animation: drift 16s ease-in-out infinite alternate; pointer-events: none; }
+.hero::after, .card--night::after, .proof::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); opacity: .07; mix-blend-mode: overlay; pointer-events: none; }
+.hero__grid { position: relative; z-index: 1; }
+.proof, .card--night { position: relative; }
+.proof__list { position: relative; z-index: 1; }
+.card--night > * { position: relative; z-index: 1; }
+@keyframes drift { to { transform: translate3d(6%, -4%, 0) scale(1.08); } }
+/* contadores */
+[data-to] { font-variant-numeric: tabular-nums; }
+.pop { animation: pop .5s var(--ease); }
+@keyframes pop { 40% { transform: scale(1.12); color: #E2C4A5; } }
+/* luz que sigue al ratón en las tarjetas */
+.spot { position: relative; isolation: isolate; }
+.spot::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .6), transparent 60%); opacity: 0; transition: opacity .4s; pointer-events: none; }
+.card--night.spot::before, .chapter--after.spot::before { background: radial-gradient(460px circle at var(--mx, 50%) var(--my, 50%), rgba(214, 178, 140, .16), transparent 60%); }
+.spot:hover::before { opacity: 1; }
+/* botones: brillo que cruza y respuesta al pulsar */
+.btn { position: relative; overflow: hidden; isolation: isolate; }
+.btn::after { content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; z-index: -1; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .45), transparent); transform: skewX(-18deg); transition: left .7s var(--ease); pointer-events: none; }
+.btn--dark::after { background: linear-gradient(100deg, transparent, rgba(214, 178, 140, .45), transparent); }
+.btn:hover::after { left: 130%; }
+.btn:active, .copy:active, .nav__cta:active { transform: scale(.96) !important; transition-duration: .1s; }
+.btn--dark:hover { background: var(--tan-deep); }
+.btn--light:hover { background: #fff; box-shadow: 0 14px 34px -14px rgba(173, 134, 99, .8); }
+/* menú: subrayado que se dibuja */
+.nav a:not(.nav__cta) { background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 1.5px; padding-bottom: 3px; transition: background-size .35s var(--ease); }
+.nav a:not(.nav__cta):hover { background-size: 100% 1.5px; }
+.nav__cta { transition: background .25s, transform .25s var(--ease); }
+.nav__cta:hover { background: var(--tan-deep); }
+/* tarjetas de temas: el icono se tiñe al pasar */
+.area__icon { transition: background .35s, color .35s, transform .45s var(--ease); }
+.area:hover .area__icon { background: var(--tan); color: var(--paper); transform: rotate(-8deg) scale(1.08); }
+/* guía: candado que llama la atención y páginas en 3D */
+.news__art { transition: transform .5s var(--ease); transform-style: preserve-3d; }
+.news__lock { animation: nudge 5s 2s ease-in-out infinite; }
+@keyframes nudge { 0%, 86%, 100% { transform: rotate(4deg); } 89% { transform: rotate(-6deg) scale(1.06); } 92% { transform: rotate(9deg) scale(1.06); } 95% { transform: rotate(0deg); } }
+/* Fundadores #1: borde de luz que gira */
+@property --ang { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+.hot { position: relative; }
+.hot::before { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit; padding: 1.5px; background: conic-gradient(from var(--ang), transparent 0deg 220deg, rgba(173, 134, 99, .9) 280deg, #F6E6D4 310deg, rgba(173, 134, 99, .9) 335deg, transparent 360deg); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: spin 5s linear infinite; pointer-events: none; }
+@keyframes spin { to { --ang: 360deg; } }
+.soon { display: inline-flex; align-items: center; gap: 7px; margin-left: 10px; padding: 5px 11px 5px 9px; border-radius: 999px; background: var(--ink); color: var(--paper); font-size: 10.5px; letter-spacing: .16em; vertical-align: 1px; }
+.soon i { position: relative; width: 7px; height: 7px; border-radius: 50%; background: #E2C4A5; }
+.soon i::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: #E2C4A5; animation: ping 1.8s ease-out infinite; }
+@keyframes ping { to { transform: scale(3.2); opacity: 0; } }
+.soon--light { margin: 0 0 18px; background: rgba(251, 248, 244, .16); border: 1px solid rgba(251, 248, 244, .3); font-size: 11px; font-weight: 600; text-transform: uppercase; }
+.first { margin-top: 16px; font-size: 14.5px; color: var(--ink-soft); }
+.first em { color: var(--tan-deep); }
+/* confeti al desbloquear la guía */
+.confeti { position: absolute; left: 50%; top: 82px; width: 8px; height: 12px; border-radius: 2px; pointer-events: none; animation: confeti 1.4s cubic-bezier(.15, .75, .3, 1) both; }
+@keyframes confeti { from { transform: translate(-50%, -50%) rotate(0) scale(.4); opacity: 1; } 70% { opacity: 1; } to { transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y) + 140px)) rotate(var(--r)) scale(1); opacity: 0; } }
+
 /* ---------- animaciones ---------- */
-.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
-.js .reveal.in { opacity: 1; transform: none; }
+/* aparición: de borroso a nítido, como un enfoque de cámara */
+.js .reveal { opacity: 0; transform: translateY(32px) scale(.985); filter: blur(10px); transition: opacity 1s var(--ease), transform 1s var(--ease), filter 1s var(--ease); }
+.js .reveal.in { opacity: 1; transform: none; filter: none; }
+.js .center-head.reveal .h2 { opacity: 0; transform: translateY(18px); transition: opacity .9s .14s var(--ease), transform .9s .14s var(--ease); }
+.js .center-head.reveal.in .h2 { opacity: 1; transform: none; }
+.js .offers .reveal:nth-child(2), .js .chapters .reveal:nth-child(even) { transition-delay: .06s; }
 .js .hero__text > * { animation: rise .9s var(--ease) both; }
 .js .hero__title { animation-delay: .08s; }
 .js .hero__lead { animation-delay: .3s; }
@@ -387,7 +448,8 @@ body.modal-open { overflow: hidden; }
 @keyframes grow { from { opacity: 0; transform: scale(.85); } }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .js .reveal { opacity: 1; transform: none; }
+  .js .reveal, .js .center-head.reveal .h2 { opacity: 1; transform: none; filter: none; }
+  .progress { display: none; }
   .quote__text .w { opacity: 1; }
 }
 
@@ -433,6 +495,7 @@ body.modal-open { overflow: hidden; }
   .step .btn { flex: 1 1 100%; }
   .proof__list li { padding: 0 8px; }
   .proof__list span { font-size: 12px; }
+  .soon:not(.soon--light) { display: table; margin: 10px 0 0; }
   .tool__card { padding: 20px; }
   .tool__go { display: none; }
   .areas { grid-template-columns: 1fr; gap: 12px; }
@@ -459,6 +522,7 @@ body.modal-open { overflow: hidden; }
         <a href="#contacto" class="nav__cta">Hablemos</a>
       </nav>
     </div>
+    <span class="progress" aria-hidden="true"></span>
   </header>
 
   <main id="contenido">
@@ -485,9 +549,9 @@ body.modal-open { overflow: hidden; }
     <!-- CREDIBILIDAD -->
     <div class="proof" aria-label="Resultados">
       <ul class="wrap proof__list">
-        <li><b>+1M</b><span>visualizaciones en YouTube</span></li>
-        <li><b>6.500</b><span>suscriptores en menos de un año</span></li>
-        <li><b>14M</b><span>visualizaciones en TikTok</span></li>
+        <li><b data-to="1000000" data-pre="+">+1M</b><span>visualizaciones en YouTube</span></li>
+        <li><b data-to="6500">6.500</b><span>suscriptores en menos de un año</span></li>
+        <li><b data-to="14000000">14M</b><span>visualizaciones en TikTok</span></li>
         <li><b><img src="logo-higgsfield.webp" alt="" width="160" height="160">Higgsfield AI</b><span>ha trabajado conmigo</span></li>
       </ul>
     </div>
@@ -568,15 +632,16 @@ body.modal-open { overflow: hidden; }
             <a class="btn btn--dark" href="https://www.youtube.com/@klauvara" target="_blank" rel="noopener">Ver el canal ↗</a>
           </article>
 
-          <article class="card offer reveal" id="emprendedores">
+          <article class="card offer hot reveal" id="emprendedores">
             <div>
-              <span class="kicker">02 · Fundadores #1</span>
+              <span class="kicker">02 · Fundadores #1 <span class="soon"><i></i>Próximamente</span></span>
               <h3 class="h3">Haces algo bueno<br><em>y nadie lo ve.</em></h3>
               <p class="p">Próximamente abro <b>Fundadores #1</b>: acompañaré a unas pocas personas a convertir YouTube en el escaparate de su negocio.</p>
               <div class="actions">
                 <a class="btn btn--dark" href="https://forms.gle/wpjkUhy8nPCwjAKq7" target="_blank" rel="noopener">Cuéntame tu caso ↗</a>
                 <span class="note">2 minutos · sin compromiso</span>
               </div>
+              <p class="first">Quien me cuente su caso se enterará <em>antes que nadie.</em></p>
             </div>
             <ul class="ticks">
               <li><b>Encontrar de qué hablar</b> para que te elijan a ti y no a otro.</li>
@@ -719,6 +784,7 @@ body.modal-open { overflow: hidden; }
     <section class="block" id="contacto">
       <div class="wrap">
         <div class="card final reveal">
+          <span class="soon soon--light"><i></i>Fundadores #1 · Próximamente</span>
           <h2 class="h2">¿Haces algo bueno<br><em>y nadie lo ve?</em></h2>
           <p class="final__p">Cuéntame tu caso. Próximamente abro Fundadores #1.</p>
           <div class="actions">
@@ -820,6 +886,8 @@ function alScroll() {
   const y = window.scrollY;
   const vh = window.innerHeight;
   cabecera.classList.toggle('is-solid', y > 40);
+  const total = document.documentElement.scrollHeight - vh;
+  cabecera.style.setProperty('--p', total > 0 ? Math.min(1, y / total).toFixed(4) : 0);
   if (reduce) return;
   if (frase) {
     const r = frase.getBoundingClientRect();
@@ -834,6 +902,78 @@ window.addEventListener('scroll', () => { if (!pendiente) { pendiente = true; re
 // Vídeo a cámara: quieto si la persona prefiere menos movimiento
 const clip = document.querySelector('.clip video');
 if (clip && reduce) { clip.removeAttribute('autoplay'); clip.pause(); }
+
+// ===== Efectos premium =====
+const fino = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+// Cifras que cuentan hacia arriba cuando aparecen
+const conPuntos = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+if (!reduce && 'IntersectionObserver' in window) {
+  document.querySelectorAll('[data-to]').forEach(el => {
+    const final = el.textContent, hasta = Number(el.dataset.to), pre = el.dataset.pre || '';
+    el.textContent = pre + '0';
+    const obs = new IntersectionObserver(es => {
+      if (!es[0].isIntersecting) return;
+      obs.disconnect();
+      const t0 = performance.now(), dura = 1700;
+      const paso = t => {
+        const k = Math.min(1, (t - t0) / dura), e = 1 - Math.pow(1 - k, 4);
+        el.textContent = k < 1 ? pre + conPuntos(Math.round(hasta * e)) : final;
+        if (k < 1) requestAnimationFrame(paso); else el.classList.add('pop');
+      };
+      requestAnimationFrame(paso);
+    }, { threshold: 0.6 });
+    obs.observe(el);
+  });
+}
+
+// Solo con ratón: luz que sigue al cursor, botones magnéticos y guía en 3D
+if (fino && !reduce) {
+  document.querySelectorAll('.card:not(.hot), .area, .chapter, .tool__card').forEach(el => {
+    el.classList.add('spot');
+    el.addEventListener('pointermove', e => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+  document.querySelectorAll('.btn, .nav__cta').forEach(b => {
+    b.addEventListener('pointermove', e => {
+      const r = b.getBoundingClientRect();
+      b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.16}px, ${(e.clientY - r.top - r.height / 2) * 0.3}px)`;
+    });
+    b.addEventListener('pointerleave', () => { b.style.transform = ''; });
+  });
+  const arte = document.querySelector('.news__art'), guia = document.querySelector('.news');
+  if (arte && guia) {
+    const lim = v => Math.max(-0.6, Math.min(0.6, v));
+    guia.addEventListener('pointermove', e => {
+      const r = arte.getBoundingClientRect();
+      const x = lim((e.clientX - r.left) / r.width - 0.5), y = lim((e.clientY - r.top) / r.height - 0.5);
+      arte.style.transform = `perspective(900px) rotateY(${x * 14}deg) rotateX(${-y * 14}deg)`;
+    });
+    guia.addEventListener('pointerleave', () => { arte.style.transform = ''; });
+  }
+}
+
+// Confeti con los colores de la marca al desbloquear la guía
+function celebrar() {
+  if (reduce) return;
+  const caja = modal.querySelector('.modal__box');
+  const colores = ['#AD8663', '#7C5E46', '#EDE3D7', '#C9A787', '#1F1814'];
+  for (let i = 0; i < 36; i++) {
+    const c = document.createElement('i');
+    const a = Math.random() * Math.PI * 2, d = 80 + Math.random() * 170;
+    c.className = 'confeti';
+    c.style.setProperty('--x', `${Math.cos(a) * d}px`);
+    c.style.setProperty('--y', `${Math.sin(a) * d * 0.8 - 50}px`);
+    c.style.setProperty('--r', `${Math.random() * 720 - 360}deg`);
+    c.style.background = colores[i % colores.length];
+    c.style.animationDelay = `${0.15 + Math.random() * 0.15}s`;
+    caja.appendChild(c);
+    setTimeout(() => c.remove(), 2000);
+  }
+}
 
 // Copiar email
 const toast = document.querySelector('.toast');
@@ -854,6 +994,7 @@ function abrirModal() {
   modal.hidden = false;
   document.body.classList.add('modal-open');
   requestAnimationFrame(() => modal.classList.add('is-open'));
+  celebrar();
   modal.querySelector('[data-close]').focus();
 }
 function cerrarModal() {
