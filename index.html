@@ -268,9 +268,6 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .ticks li { position: relative; padding-left: 38px; font-size: 16.5px; line-height: 1.5; color: var(--ink-soft); }
 .ticks li::before { content: ""; position: absolute; left: 0; top: 1px; width: 24px; height: 24px; border-radius: 50%; background: var(--tan) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23FBF8F4' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round' d='M6.5 12.5l3.5 3.5 7.5-8'/%3E%3C/svg%3E") center / 16px no-repeat; }
 .ticks b { color: var(--ink); font-weight: 600; }
-/* 02: canales pixelados con candado */
-.locked-pill { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; background: rgba(23, 17, 14, .9); color: var(--paper); font-size: 13px; font-weight: 600; text-decoration: none; padding: 10px 16px; border-radius: 999px; box-shadow: 0 16px 30px -14px rgba(0, 0, 0, .6); transition: transform .3s var(--ease), background .3s; }
-.locked-pill:hover { transform: translate(-50%, -50%) scale(1.05); background: var(--ink); }
 /* historia: línea de tiempo que se va llenando al bajar */
 .story { position: relative; display: grid; gap: 12px; max-width: 1000px; margin: 44px auto 0; padding: 0 0 0 66px; list-style: none; }
 .story::before, .story::after { content: ""; position: absolute; left: 21px; top: 30px; bottom: 30px; width: 2px; border-radius: 2px; }
@@ -284,9 +281,24 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .story__img { position: relative; margin: 0; aspect-ratio: 1; border-radius: 18px; overflow: hidden; background: #E4D7C8; }
 .story__img > img:first-child { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
 .story__card:hover .story__img > img:first-child { transform: scale(1.04); }
-.story__img--pixel > img:first-child { transform: scale(1.4); filter: saturate(.85); }
-.story__card:hover .story__img--pixel > img:first-child { transform: scale(1.46); }
-.story__img .locked-pill { font-size: 11.5px; padding: 7px 12px; gap: 6px; }
+.story__img--pixel { background: var(--night); }
+.story__img--pixel > img:first-child { transform: scale(1.5); filter: blur(1.5px) saturate(.9) brightness(.95); }
+.story__card:hover .story__img--pixel > img:first-child { transform: scale(1.5); }
+/* barrido como de escáner sobre los canales ocultos */
+.story__img--pixel::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .18) 0 2px, transparent 2px 4px), linear-gradient(180deg, transparent 40%, rgba(214, 178, 140, .35) 50%, transparent 60%) 0 -100% / 100% 300% no-repeat; animation: scan 3.6s linear infinite; pointer-events: none; }
+@keyframes scan { to { background-position: 0 0, 0 200%; } }
+.classified { position: absolute; z-index: 1; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-4deg); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; padding: 7px 12px; border: 1.5px solid var(--tan-light); border-radius: 8px; background: rgba(23, 17, 14, .75); color: #F3E2CF; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+/* nombre tapado en el texto */
+.redact { display: inline-block; position: relative; vertical-align: -1px; height: 1em; line-height: 1em; padding: 0 2px; border-radius: 3px; background: var(--ink); color: transparent; text-decoration: none; letter-spacing: -.12em; overflow: hidden; }
+.redact::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, rgba(214, 178, 140, .55) 50%, transparent 70%) -150% 0 / 200% 100% no-repeat; animation: glint 2.8s ease-in-out infinite; }
+@keyframes glint { 60%, 100% { background-position: 250% 0; } }
+.redact:hover { background: var(--tan-deep); }
+.story__more { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--tan-deep); text-decoration: none; border-bottom: 1.5px solid rgba(124, 94, 70, .35); padding-bottom: 2px; transition: border-color .25s, gap .25s var(--ease); }
+.story__more:hover { border-color: currentColor; gap: 9px; }
+.story__chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.story__chips li { font-size: 12.5px; color: var(--ink-soft); background: var(--paper); border-radius: 999px; padding: 5px 11px; }
+.story__chips b { color: var(--ink); font-weight: 600; }
+.story__step--now .story__body p b { color: var(--paper); font-weight: 600; }
 .story__img .sticker { position: absolute; right: 5%; bottom: 6%; width: 32%; height: auto; transform: rotate(5deg); border-radius: 10px; box-shadow: 0 18px 30px -14px rgba(31, 24, 20, .6); }
 .story__body { padding: 6px 20px 6px 0; }
 .story__when { display: block; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--tan-deep); }
@@ -479,7 +491,6 @@ body.modal-open { overflow: hidden; }
   .hl { white-space: normal; }
   .hero__actions .btn { flex: 1 1 100%; }
   .card { border-radius: 24px; }
-  .locked-pill { font-size: 12px; padding: 8px 13px; }
 
   .actions .btn, .final .actions .copy { flex: 1 1 100%; justify-content: center; }
   .step .btn { flex: 1 1 100%; }
@@ -494,8 +505,11 @@ body.modal-open { overflow: hidden; }
   .story__when { font-size: 10.5px; letter-spacing: .16em; }
   .story__body h3 { margin-top: 5px; font-size: 19px; }
   .story__body p { margin-top: 5px; font-size: 14px; line-height: 1.5; }
-  .story__img .locked-pill { font-size: 9.5px; padding: 5px 8px; gap: 4px; }
-  .story__img .locked-pill svg { width: 10px; height: 10px; }
+  .classified { font-size: 8.5px; padding: 4px 6px; gap: 4px; letter-spacing: .1em; }
+  .classified svg { width: 9px; height: 9px; }
+  .classified__long { display: none; }
+  .story__chips li { font-size: 11.5px; padding: 4px 9px; }
+  .story__more { font-size: 12px; }
   .story__dot { top: 12px; }
   .soon:not(.soon--light) { display: table; margin: 10px 0 0; }
   .tool__card { padding: 20px; }
@@ -691,7 +705,7 @@ body.modal-open { overflow: hidden; }
               <div class="story__body">
                 <span class="story__when">De pequeña</span>
                 <h3>Quería ser <em>youtuber.</em></h3>
-                <p>Era muy creativa y soñaba con tener un canal. Luego llegó el instituto.</p>
+                <p>Disfraces, ideas, ganas de enseñarlo todo. Lo tenía clarísimo. Hasta que llegó el instituto.</p>
               </div>
             </article>
           </li>
@@ -702,18 +716,19 @@ body.modal-open { overflow: hidden; }
               <div class="story__body">
                 <span class="story__when">En el instituto</span>
                 <h3>La chica que <em>no se veía.</em></h3>
-                <p>Callada, con tanta ansiedad que hasta coger un bus me costaba. En las presentaciones, temblaba. Era lista, pero no me lo creía.</p>
+                <p>Callada, de las que pasan desapercibidas. Tanta ansiedad que hasta coger un bus me costaba. Y en las presentaciones, no me salían las palabras.</p>
               </div>
             </article>
           </li>
           <li class="story__step reveal">
             <span class="story__dot" aria-hidden="true">03</span>
             <article class="story__card">
-              <figure class="story__img story__img--pixel"><img src="historia-2.webp" alt="Los canales sin cara de Claudia, pixelados" loading="lazy" decoding="async" width="1200" height="330"><a class="locked-pill" href="#historia"><svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 1 1 6 0v3H9Z"/></svg> En la guía</a></figure>
+              <figure class="story__img story__img--pixel"><img src="historia-2.webp" alt="Los canales sin cara de Claudia, pixelados" loading="lazy" decoding="async" width="1200" height="330"><span class="classified" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 1 1 6 0v3H9Z"/></svg> <span class="classified__long">Nombres </span>ocultos</span></figure>
               <div class="story__body">
-                <span class="story__when">Los fracasos</span>
-                <h3>Lo intenté <em>sin enseñar la cara.</em></h3>
-                <p>Canal tras canal, editando desde el móvil. Ninguno despegaba. Pero no paré.</p>
+                <span class="story__when">Escondida</span>
+                <h3>Me escondí. <em>Pero creando.</em></h3>
+                <p>Canal tras canal, sin enseñar la cara y editando desde el móvil. Ninguno despegaba. El primero se llamaba <a class="redact" href="#historia" aria-label="Nombre oculto. Está en la guía">████████</a>.</p>
+                <a class="story__more" href="#historia"><svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 1 1 6 0v3H9Z"/></svg> Sus nombres, solo en la guía</a>
               </div>
             </article>
           </li>
@@ -723,8 +738,9 @@ body.modal-open { overflow: hidden; }
               <figure class="story__img"><img src="historia-3.webp" alt="Claudia abriendo la caja de su primer ordenador" loading="lazy" decoding="async" width="1000" height="826"><img class="sticker" src="historia-partner.webp" alt="Aviso de YouTube Studio: ¡Enhorabuena! Ya eres partner de YouTube" loading="lazy" decoding="async" width="398" height="497"></figure>
               <div class="story__body">
                 <span class="story__when">Mi primer ordenador</span>
-                <h3>Y por fin, <em>funcionó.</em></h3>
-                <p>Me lo regalaron mis padres. Con él y mucha constancia, moneticé mi canal sin cara. Uno de mis canales pasó de 20.000 suscriptores y en TikTok llegué a 14 millones de visualizaciones.</p>
+                <h3>Hasta que <em>funcionó.</em></h3>
+                <p>Mis padres me regalaron mi primer ordenador. Con él, y mucha constancia, llegó el aviso: canal monetizado. Sin enseñar la cara.</p>
+                <ul class="story__chips"><li><b>+20.000</b> suscriptores en un canal</li><li><b>14M</b> visualizaciones en TikTok</li></ul>
               </div>
             </article>
           </li>
@@ -735,7 +751,7 @@ body.modal-open { overflow: hidden; }
               <div class="story__body">
                 <span class="story__when">Lo que descubrí</span>
                 <h3>Por qué algunas cosas <em>nos atrapan.</em></h3>
-                <p>Y algo injusto: hay gente buenísima, con algo valioso, que nadie ve. Yo sabía hacer que las cosas se vieran. Menos yo.</p>
+                <p>Por qué una marca te engancha y otra igual de buena desaparece. Por qué un vídeo explota y otro, mejor, no lo ve nadie. Y lo injusto: lo bueno no siempre se ve.</p>
               </div>
             </article>
           </li>
@@ -745,8 +761,8 @@ body.modal-open { overflow: hidden; }
               <figure class="story__img"><img src="historia-camara.webp" alt="El primer vídeo de Claudia hablando a cámara, en su portátil" loading="lazy" decoding="async" width="900" height="900"></figure>
               <div class="story__body">
                 <span class="story__when">2026</span>
-                <h3>Di <em>la cara.</em></h3>
-                <p>Abrí Klauvara y empecé a hablar a cámara, temblando un poco. En menos de un año, más de un millón de visualizaciones.</p>
+                <h3>Y di <em>la cara.</em></h3>
+                <p>Sabía hacer que todo se viera. Todo menos yo. Así que abrí Klauvara y hablé a cámara, temblando un poco. En menos de un año, más de un millón de visualizaciones.</p>
               </div>
             </article>
           </li>
@@ -757,7 +773,7 @@ body.modal-open { overflow: hidden; }
               <div class="story__body">
                 <span class="story__when">Hoy</span>
                 <h3>Esto acaba <em>de empezar.</em></h3>
-                <p>Equipo nuevo, vídeos nuevos cada semana y Fundadores #1, próximamente.</p>
+                <p>Cámara y micro nuevos, aún en la caja. Vídeos nuevos cada semana. Y algo que estoy preparando: <b>Fundadores #1</b>.</p>
               </div>
             </article>
           </li>
